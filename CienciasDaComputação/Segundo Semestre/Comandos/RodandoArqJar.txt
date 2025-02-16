@@ -1,0 +1,9 @@
+Comandos para rodar arq jar:
+
+* Ir para o repositorio:
+ 1- cd caminho/repositorio
+
+* Rodando o arq jar:
+ 1- java - jar NomeDoArq.jar
+
+

@@ -1,0 +1,18 @@
+Como criar e utilizar as pastas pelo cmd:
+
+* Criando pasta:
+ 1- cd local q deseja criar a pasta.
+ 2- mkdir <nomepasta>
+ 3- cd <nomepasta>
+
+* Utilizando arquivos dentro da pasta:
+ 1- touch <nomeAqrquivo>
+ 2- nano <nomeArquivo>
+ 3- vim <nomeArquivo>
+ 4- gedit <nomeArquivo & //se esiver usando ambiente gráfico
+	
+* Vendo o conteúdo do arquivo:
+ 1- cat <nomeArquivo>
+ 2- less <nomeArquivo> // permite rolar o conteúdo.
+ 3- more <nomeArquivo> // Permite rolar com um comportamento diferente.
+

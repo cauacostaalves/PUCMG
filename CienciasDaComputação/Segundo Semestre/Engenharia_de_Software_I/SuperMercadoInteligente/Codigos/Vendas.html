@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Inteligente</title>
+    <link rel="stylesheet" href="css/cabecarioefooter.css">
+    <link rel="stylesheet" href="css/Vendas.css">
+</head>
+<body>
+    <header>
+        <h1>Supermercado Inteligente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Produto.html">Produtos</a></li>
+                <li><a href="Inventario.html">Inventário</a></li>
+                <li><a href="Vendas.html">Vendas</a></li>
+                <li><a href="Relatorios.html">Relatórios</a></li>
+                <li><a href="Clientes.html">Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <main>
+            <section id="pesquisa-vendas">
+                <h2>Pesquisar Vendas</h2>
+                <form>
+                    <input type="text" id="pesquisar" name="pesquisar" placeholder="Digite o nome do cliente ou item...">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </section>
+            <section id="listar-vendas">
+                <h2>Vendas Recentes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Preço Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados fictícios de vendas -->
+                        <tr>
+                            <td>10/12/2024</td>
+                            <td>João Silva</td>
+                            <td>Arroz 5kg</td>
+                            <td>2</td>
+                            <td>R$ 41,98</td>
+                        </tr>
+                        <tr>
+                            <td>10/12/2024</td>
+                            <td>Maria Oliveira</td>
+                            <td>Feijão 1kg</td>
+                            <td>1</td>
+                            <td>R$ 8,50</td>
+                        </tr>
+                        <tr>
+                            <td>09/12/2024</td>
+                            <td>Lucas Pereira</td>
+                            <td>Óleo 900ml</td>
+                            <td>3</td>
+                            <td>R$ 23,70</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        
+    </main>
+    <footer>
+        <p>© 2024 Supermercado Inteligente. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

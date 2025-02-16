@@ -1,0 +1,349 @@
+Requisitos Funcionais:
+
+Definição: Requisitos funcionais descrevem as funcionalidades específicas que um sistema deve fornecer. 
+Eles definem o que o sistema deve fazer, incluindo as interações do usuário e as respostas do sistema a entradas específicas.
+
+Exemplo:
+- Requisito: O sistema deve permitir que os usuários se registrem com um endereço de e-mail e uma senha.
+- Descrição: Esse requisito especifica que, ao acessar a página de registro, os usuários devem conseguir criar uma conta fornecendo
+ seu e-mail e criando uma senha. Após a validação, o sistema deve armazenar essas informações e permitir que o usuário faça login posteriormente.
+
+-------------------------->/?°
+
+Requisitos Não-Funcionais:
+
+Definição: Requisitos não-funcionais estabelecem as condições que o sistema deve atender, relacionadas ao desempenho, segurança,
+ usabilidade e outras qualidades. Eles definem como o sistema deve operar em vez de o que ele deve fazer.
+
+Exemplo:
+- Requisito: O sistema deve ter um tempo de resposta de no máximo 2 segundos para 95% das requisições dos usuários.
+- Descrição: Esse requisito define um critério de desempenho. Ele assegura que, ao utilizar o sistema, os usuários não devem esperar
+ mais do que 2 segundos para que suas ações (como carregar uma página ou buscar informações) sejam concluídas, promovendo uma experiência fluida.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Requisitos de Usuários:
+
+Definição: Requisitos de usuários descrevem as necessidades e expectativas dos usuários em relação a um sistema. 
+Eles ajudam a entender o que os usuários desejam alcançar e como o sistema pode apoiá-los.
+
+1. **Who (Quem)**:
+   - Identifica os usuários que farão uso do sistema.
+   - Exemplo: "Usuários finais, como clientes que compram produtos online."
+
+2. **What (O que)**:
+   - Descreve a funcionalidade ou necessidade específica que o usuário deseja.
+   - Exemplo: "Os usuários devem poder visualizar o histórico de suas compras."
+
+3. **Why (Por que)**:
+   - Explica a razão pela qual essa necessidade é importante.
+   - Exemplo: "Para que os usuários possam facilmente acompanhar suas compras anteriores e gerenciar retornos ou trocas."
+
+Juntando os elementos:
+- **Requisito de Usuário**: "Os usuários finais devem poder visualizar o histórico de suas compras para que possam facilmente 
+acompanhar suas compras anteriores e gerenciar retornos ou trocas."
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Regras de Negócio:
+
+Definição: Regras de negócio são diretrizes ou condições que definem ou restringem alguns aspectos de um negócio.
+ Elas orientam decisões e comportamentos dentro de uma organização, assegurando que as operações sejam realizadas 
+ de acordo com as políticas e objetivos estabelecidos.
+
+Exemplo: 
+- "Os pedidos só podem ser aprovados se o cliente tiver crédito disponível."
+- "Os descontos só podem ser aplicados a compras acima de R$100,00."
+
+Importância:
+- As regras de negócio ajudam a garantir conformidade, eficiência e consistência nas operações.
+- Elas servem como base para o desenvolvimento de sistemas e processos, garantindo que as necessidades e objetivos da 
+organização sejam atendidos.
+
+Resumo:
+Regras de negócio definem as normas e diretrizes que governam as operações de uma empresa, assegurando que as ações 
+estejam alinhadas com os objetivos organizacionais.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Stakeholders:
+
+Definição: Stakeholders são todas as partes interessadas em um projeto ou negócio, que podem influenciar ou ser impactadas por 
+suas ações e decisões.
+
+Tipos de Stakeholders:
+
+1. **Stakeholders Primários:**
+   - Descrição: São aqueles diretamente envolvidos no projeto e que têm um interesse significativo em seu sucesso ou fracasso. 
+   Eles afetam diretamente o resultado do projeto.
+   - Exemplos: Clientes, usuários finais, membros da equipe de desenvolvimento, patrocinadores do projeto.
+
+2. **Stakeholders Secundários:**
+   - Descrição: São aqueles que não estão diretamente envolvidos, mas que podem ser afetados pelo projeto ou que têm algum 
+   interesse no resultado. Eles podem influenciar o projeto indiretamente.
+   - Exemplos: Comunidade local, órgãos reguladores, fornecedores, concorrentes, imprensa.
+
+Importância:
+- Identificar e entender os stakeholders é fundamental para garantir que suas necessidades e expectativas sejam consideradas,
+ ajudando a evitar conflitos e a promover um melhor alinhamento durante o desenvolvimento de projetos.
+
+Resumo:
+Os stakeholders são partes interessadas em um projeto, divididos em primários (diretamente envolvidos) e secundários 
+(afetados indiretamente), e sua identificação é crucial para o sucesso do projeto.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exemplo de tabela com historico de usuarios e seus requisitos:
+
+| ID  | História de Usuário                                                                                     | Stakeholder 1        | Stakeholder 2        | Requisito Funcional                                                                                 | Requisito Não Funcional                                             | Regra de Negócio                                                 |
+|-----|---------------------------------------------------------------------------------------------------------|----------------------|----------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|------------------------------------------------------------------|
+| 1   | Como um cliente, quero visualizar o catálogo de produtos, para escolher o que quero comprar.            | Cliente              | Gerente de Vendas    | O sistema deve permitir que o cliente veja todos os produtos disponíveis.                           | O catálogo deve carregar em até 3 segundos.                         | Todos os produtos devem estar atualizados.                       |
+| 2   | Como um administrador, quero adicionar novos produtos ao sistema, para manter o estoque atualizado.     | Administrador        | Cliente              | O sistema deve permitir a adição de novos produtos com informações como nome, preço e descrição.    | A interface deve ser intuitiva e fácil de usar.                     | Os produtos devem ser validados antes da adição.                 |
+| 3   | Como um usuário, quero poder realizar o pagamento online, para concluir minhas compras de forma rápida. | Cliente              | Banco                | O sistema deve oferecer opções de pagamento, como cartão de crédito e PayPal.                       | O processo de pagamento deve ser seguro e criptografado.            | O pagamento deve ser confirmado em até 5 minutos.                |
+| 4   | Como um suporte técnico, quero acessar relatórios de vendas, para identificar tendências e problemas.   | Suporte Técnico      | Gerente de Vendas    | O sistema deve gerar relatórios de vendas mensais e anuais.                                         | Os relatórios devem estar disponíveis em PDF e Excel.               | Os relatórios devem ser gerados automaticamente no final do mês. |
+| 5   | Como um cliente, quero receber notificações de promoções por e-mail, para não perder ofertas.           | Cliente              | Marketing            | O sistema deve enviar e-mails automáticos quando houver promoções.                                  | As notificações devem ser enviadas em até 24 horas após a promoção. | Os clientes devem optar por receber ou não as notificações.      |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Diferença entre 3 Cs e 3 Ws
+
+- **3 Ws (Who, What, Why)**:
+  - **Who**: Identifica quem é o usuário ou stakeholder.
+  - **What**: Define o que o usuário quer fazer.
+  - **Why**: Explica a razão pela qual isso é importante para o usuário.
+
+- **3 Cs (Card, Conversation, Confirmation)**:
+  - **Card**: Uma breve descrição da história de usuário.
+  - **Conversation**: Refere-se ao diálogo e discussão entre stakeholders sobre os requisitos.
+  - **Confirmation**: Define os critérios de aceitação que confirmam quando a história está completa.
+
+### UML e INVEST nas Histórias de Usuário
+
+- **UML (Unified Modeling Language)**:
+  - É uma linguagem de modelagem que fornece uma forma padronizada de visualizar o design de um sistema.
+   Em histórias de usuário, pode ser usada para criar diagramas que ilustram interações, fluxos de trabalho 
+   e estrutura do sistema.
+
+- **INVEST**:
+  - É um acrônimo que ajuda a garantir que as histórias de usuário sejam eficazes:
+    - **I**ndependente: Cada história pode ser desenvolvida de forma isolada.
+    - **N**egociável: As histórias são flexíveis e não rígidas.
+    - **V**aloroso: Cada história oferece valor ao usuário.
+    - **E**stimável: As histórias são pequenas o suficiente para que o esforço possa ser estimado.
+    - **S**imples: As histórias devem ser claras e diretas.
+    - **T**estável: Cada história deve ter critérios que permitam a validação da implementação.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+### Manifesto Ágil
+
+O Manifesto Ágil, criado em 2001, é um documento que define os princípios fundamentais do desenvolvimento
+ ágil de software. Ele enfatiza a colaboração, a flexibilidade e a entrega contínua de valor. O manifesto 
+ é composto por quatro valores principais e doze princípios.
+
+#### Quatro Valores do Manifesto Ágil
+
+1. **Indivíduos e interações mais que processos e ferramentas**:
+   - Valoriza a comunicação e a colaboração entre a equipe, em vez de depender apenas de ferramentas ou
+    processos rígidos.
+
+2. **Software funcionando mais que documentação abrangente**:
+   - Prioriza a entrega de software que funcione em vez de se concentrar em documentação extensiva que pode
+    se tornar obsoleta.
+
+3. **Colaboração com o cliente mais que negociação de contratos**:
+   - Enfatiza a importância de trabalhar junto ao cliente durante todo o processo de desenvolvimento,
+    ao invés de apenas seguir contratos.
+
+4. **Responder a mudanças mais que seguir um plano**:
+   - Valoriza a capacidade de adaptação e resposta a mudanças ao longo do projeto, ao invés de seguir
+    estritamente um plano pré-definido.
+
+#### Doze Princípios do Manifesto Ágil
+
+1. Satisfação do cliente através da entrega contínua de software valioso.
+2. Mudanças nos requisitos são bem-vindas, mesmo em estágios avançados do desenvolvimento.
+3. Entrega frequente de software funcionando, de semanas a meses.
+4. Colaboração diária entre pessoas de negócios e desenvolvedores.
+5. Projetos devem ser construídos em torno de indivíduos motivados.
+6. A comunicação face a face é a mais eficaz.
+7. Software funcionando é a principal medida de progresso.
+8. Desenvolvimento sustentável, com um ritmo constante que pode ser mantido indefinidamente.
+9. Atenção contínua à excelência técnica e ao bom design.
+10. Simplicidade – a arte de maximizar o trabalho não realizado.
+11. As melhores arquiteturas, requisitos e designs emergem de equipes auto-organizadas.
+12. A reflexão regular sobre como se tornar mais eficaz e a adaptação ao longo do tempo.
+
+O Manifesto Ágil promove uma cultura de melhoria contínua e adaptação, essencial para o sucesso em ambientes 
+de desenvolvimento dinâmicos.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Modelos de Desenvolvimento de Software: ##
+
+1. **Modelo Cascata**:
+   - **Descrição**: Segue uma sequência linear de fases: Requisitos, Design, Implementação, Verificação e Manutenção.
+   - **Quando usar**: Projetos com requisitos bem definidos e estáveis, onde as mudanças são raras. Ideal para 
+   projetos governamentais ou de engenharia.
+   - **Exemplo**: Desenvolvimento de um sistema de controle de tráfego aéreo.
+
+2. **Modelo Incremental**:
+   - **Descrição**: O desenvolvimento é feito em pequenos incrementos, cada um adicionando funcionalidades ao sistema.
+   - **Quando usar**: Projetos que podem ser divididos em partes menores e entregues em incrementos. 
+   Permite feedback contínuo e ajustes ao longo do processo.
+   - **Exemplo**: Desenvolvimento de um sistema de gerenciamento de clientes (CRM).
+
+3. **Modelo de Prototipação**:
+   - **Descrição**: Criação de protótipos funcionais para entender melhor os requisitos e obter feedback dos usuários.
+   - **Quando usar**: Projetos onde os requisitos não são bem compreendidos inicialmente. 
+   Útil para explorar ideias e obter feedback antes de desenvolver o produto final.
+   - **Exemplo**: Desenvolvimento de um novo aplicativo móvel com funcionalidades inovadoras.
+
+4. **Modelo RAD (Rapid Application Development)**:
+   - **Descrição**: Foco na rápida construção de protótipos e iterações frequentes.
+   - **Quando usar**: Projetos que exigem desenvolvimento rápido e flexível, 
+   com foco na construção de protótipos e iterações frequentes.
+   - **Exemplo**: Desenvolvimento de um aplicativo de e-commerce para lançamento rápido no mercado.
+
+5. **Modelo Espiral**:
+   - **Descrição**: Combina elementos do modelo cascata e da prototipação, com foco na análise de riscos
+    e na iteração contínua.
+   - **Quando usar**: Projetos complexos e de grande escala que requerem análise de riscos contínua e iterações.
+   - **Exemplo**: Desenvolvimento de um sistema de software para uma empresa de telecomunicações.
+
+6. **Modelo Ágil**:
+   - **Descrição**: Ênfase na flexibilidade, colaboração constante com o cliente e entregas contínuas de
+    pequenas partes funcionais. Métodos populares incluem Scrum e Kanban.
+   - **Quando usar**: Projetos que exigem flexibilidade, colaboração constante com o cliente e entregas contínuas de
+    pequenas partes funcionais. Ideal para ambientes dinâmicos e projetos onde os requisitos podem mudar frequentemente.
+   - **Exemplo**: Desenvolvimento de um software de gestão de projetos.
+
+7. **Modelo DevOps**:
+   - **Descrição**: Integra desenvolvimento (Dev) e operações (Ops) para melhorar a colaboração e eficiência, 
+   com foco na automação e entrega contínua.
+   - **Quando usar**: Projetos que necessitam de integração contínua entre desenvolvimento e operações para
+    melhorar a colaboração e eficiência.
+   - **Exemplo**: Desenvolvimento e manutenção de um serviço de streaming de vídeo.
+
+8. **Modelo Evolucionário**:
+- **Descrição**: Combina elementos dos modelos iterativo e incremental. O desenvolvimento é feito em ciclos, 
+onde cada ciclo resulta em uma versão mais completa e refinada do software.
+- **Quando usar**: Projetos com requisitos mutáveis e onde o feedback dos usuários é crucial.
+ Ideal para sistemas complexos que precisam ser desenvolvidos e refinados ao longo do tempo.
+- **Exemplo**: Desenvolvimento de software orientado a objetos, onde o sistema pode ser 
+dividido em unidades menores (objetos) que são desenvolvidas e refinadas iterativamente.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Quando usar cada conceito:( os mais importantes)
+
+1. Modelo Cascata
+- Descrição: Processo linear e sequencial.
+- Quando Usar: Projetos com requisitos bem definidos e estáveis, ambientes regulamentados.
+- Vantagens: Estrutura clara, fácil de gerenciar e documentar.
+- Desvantagens: Dificuldade em lidar com mudanças; atrasos em fases anteriores podem afetar o cronograma; não permite revisões rápidas.
+- Exemplo de Projeto: Sistema de Gestão de Documentos em um Banco
+  - Descrição: O banco precisa de um sistema que gerencie documentos de forma eficiente, com requisitos claros e regulamentações rigorosas.
+  - Por que Usar: Os requisitos do sistema são bem definidos desde o início e não se espera que mudem durante o desenvolvimento, 
+  tornando o modelo cascata apropriado.
+
+2. Prototipação
+- Descrição: Criação de versões iniciais (protótipos) do produto para validação de ideias.
+- Quando Usar: Projetos onde os requisitos são incertos ou em evolução; quando é necessário feedback rápido dos usuários.
+- Vantagens: Ajuda a visualizar soluções e identificar problemas cedo, aumentando a satisfação do cliente.
+- Desvantagens: Pode levar a expectativas não realistas; protótipos mal gerenciados podem confundir os requisitos finais; 
+necessidade de tempo extra para refinamento.
+- Exemplo de Projeto: Aplicativo de Redes Sociais
+  - Descrição: Uma startup está desenvolvendo um novo aplicativo de redes sociais, mas não tem certeza de quais funcionalidades 
+  serão mais atraentes para os usuários.
+  - Por que Usar: Criação de protótipos interativos permite coletar feedback rápido dos usuários sobre design e funcionalidades, 
+  ajudando a moldar o produto final.
+
+3. Modelo Espiral
+- Descrição: Combina prototipagem e iterações, focando na avaliação de riscos.
+- Quando Usar: Projetos complexos e de alto risco, que requerem adaptação frequente.
+- Vantagens: Flexibilidade e capacidade de incorporar feedback, reduzindo riscos.
+- Desvantagens: Pode ser mais caro devido ao foco em avaliação contínua; gerenciamento complexo e necessidade de habilidades avançadas
+ em gerenciamento de riscos.
+- Exemplo de Projeto: Sistema de Gerenciamento de Vendas
+  - Descrição: Uma empresa está desenvolvendo um sistema complexo que integra vendas, estoque e atendimento ao cliente, 
+  com várias partes interessadas e requisitos que podem mudar.
+  - Por que Usar: O modelo espiral permite o gerenciamento contínuo de riscos e a incorporação de feedback em cada iteração, 
+  garantindo que o produto final atenda às necessidades dos usuários.
+
+4. Modelo Unificado (RUP - Rational Unified Process)
+- Descrição: Metodologia iterativa e incremental que combina práticas ágeis e tradicionais.
+- Quando Usar: Projetos que exigem uma abordagem estruturada, mas com flexibilidade; quando é necessário gerenciar complexidade.
+- Vantagens: Boa documentação, gerenciamento de riscos e foco em qualidade, permitindo adaptações ao longo do desenvolvimento.
+- Desvantagens: Pode ser pesado em documentação; complexidade de implementação; pode levar mais tempo para entregas iniciais.
+- Exemplo de Projeto: Plataforma de E-commerce
+  - Descrição: Uma empresa está construindo uma plataforma de e-commerce que precisa integrar várias funcionalidades, 
+  como pagamento, gerenciamento de produtos e suporte ao cliente.
+  - Por que Usar: O RUP oferece uma abordagem estruturada, permitindo a documentação adequada e o gerenciamento de complexidade, 
+  enquanto mantém flexibilidade para ajustes ao longo do desenvolvimento.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Alguns conceitos: ##
+
+1. **Ágil (Agile)**:
+- **Descrição**: Um conjunto de metodologias de desenvolvimento de software que enfatiza a flexibilidade, 
+colaboração e entrega contínua de pequenas partes funcionais do software.
+- **Quando usar**: Projetos onde os requisitos podem mudar frequentemente e a colaboração constante com o 
+cliente é essencial.
+
+2. **Scrum**:
+- **Descrição**: Uma estrutura dentro do Agile que divide o trabalho em ciclos curtos chamados Sprints,
+ geralmente de 2 a 4 semanas.
+- **Quando usar**: Projetos que se beneficiam de entregas rápidas e feedback contínuo.
+
+3. **Épico (Epic)**:
+- **Descrição**: Um grande corpo de trabalho que pode ser dividido em tarefas menores ou histórias de usuário.
+ É usado para planejar e organizar grandes funcionalidades ou projetos.
+- **Quando usar**: Projetos complexos que precisam ser divididos em partes menores para facilitar o 
+gerenciamento e o desenvolvimento.
+
+4. **Scrum Master**:
+- **Descrição**: Um papel dentro da equipe Scrum responsável por garantir que a equipe siga as práticas
+ e princípios do Scrum. Facilita reuniões, remove impedimentos e protege a equipe de distrações externas.
+- **Quando usar**: Em projetos que adotam a metodologia Scrum para garantir que a equipe esteja alinhada 
+e funcionando de maneira eficiente.
+
+5. **Backlog do Produto**:
+- **Descrição**: O Backlog do Produto é uma lista dinâmica e priorizada de todas as funcionalidades, melhorias, correções e elementos necessários para o desenvolvimento de um produto. É gerida pelo Product Owner.
+- **Função**: Serve para organizar e documentar todos os requisitos do projeto, ajudando a equipe a entender o que precisa ser feito e em que ordem.
+- **Estrutura**: Os itens mais importantes e de maior valor estão no topo da lista, enquanto os itens menos prioritários ficam mais abaixo.
+- **Vantagens**:
+  - Melhora o planejamento do projeto.
+  - Facilita a antecipação de tarefas.
+  - Auxilia na organização das atividades.
+- **Como estruturar**:
+  1. **Levantar requisitos**: Utilizar histórias de usuário para identificar as necessidades do produto.
+  2. **Definir critérios de priorização**: Ordenar os itens de acordo com a importância e o valor para o projeto.
+  3. **Revisar e ajustar**: Atualizar o backlog conforme o feedback dos clientes e as mudanças nas prioridades.
+
+6. **Daily Scrum**:
+- **Objetivo**: Facilitar a comunicação, identificar obstáculos e promover a tomada de decisões rápidas.
+- **Formato**: Cada membro responde a três perguntas: O que fiz ontem? O que farei hoje? Há algum impedimento 
+no meu caminho?
+- **Benefícios**: Melhora a colaboração, aumenta a transparência e mantém o foco no progresso do sprint.
+
+7. **Diagrama de Entidade-Relacionamento (DER)**:
+- **Descrição**: Um DER é um tipo de diagrama que ilustra como entidades (pessoas, objetos, conceitos) se relacionam entre si dentro de um sistema. É amplamente utilizado para projetar e depurar bancos de dados relacionais.
+- **Componentes Principais**:
+  - **Entidades**: Representadas por retângulos, são objetos ou conceitos que armazenam dados. Exemplo: Cliente, Produto.
+  - **Relacionamentos**: Representados por losangos, mostram como as entidades estão conectadas. Exemplo: Compra, Gerencia.
+  - **Atributos**: Representados por ovais, são as propriedades ou características das entidades. Exemplo: Nome, Data de Nascimento.
+  - **Cardinalidade**: Define o número mínimo e máximo de ocorrências de uma entidade em um relacionamento. Exemplo: 1:N (um para muitos), N:M (muitos para muitos).
+- **Histórico**: Desenvolvido por Peter Chen na década de 1970 para o design de bancos de dados.
+- **Usos**: Projetar a estrutura de bancos de dados, entender e documentar requisitos de sistemas, facilitar a comunicação entre desenvolvedores e stakeholders.
+- **Vantagens**:
+  - **Clareza Visual**: Facilita a compreensão das relações entre dados.
+  - **Organização**: Ajuda a organizar e estruturar dados de forma lógica.
+  - **Flexibilidade**: Pode ser ajustado conforme os requisitos mudam.
+- **Exemplo de Aplicação**: Modelagem de um sistema de gerenciamento de biblioteca, onde entidades como "Livro", "Usuário" e "Empréstimo" são definidas e seus relacionamentos são mapeados.
+
+
+
+

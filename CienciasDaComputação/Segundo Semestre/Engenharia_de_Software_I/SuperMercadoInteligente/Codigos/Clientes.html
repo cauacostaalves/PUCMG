@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Inteligente</title>
+    <link rel="stylesheet" href="css/cabecarioefooter.css">
+    <link rel="stylesheet" href="css/Clientes.css">
+</head>
+<body>
+    <header>
+        <h1>Supermercado Inteligente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Produto.html">Produtos</a></li>
+                <li><a href="Inventario.html">Inventário</a></li>
+                <li><a href="Vendas.html">Vendas</a></li>
+                <li><a href="Relatorios.html">Relatórios</a></li>
+                <li><a href="Clientes.html">Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <main>
+            <section id="feedback">
+                <h2>Feedback dos Clientes</h2>
+                <form>
+                    <label for="cliente-nome">Nome do Cliente:</label>
+                    <input type="text" id="cliente-nome" name="cliente-nome" required>
+    
+                    <label for="feedback-texto">Feedback:</label>
+                    <textarea id="feedback-texto" name="feedback-texto" rows="4" required></textarea>
+    
+                    <button type="submit">Enviar Feedback</button>
+                </form>
+            </section>
+            <section id="devolucoes">
+                <h2>Acompanhamento de Devoluções</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th>Produto</th>
+                            <th>Motivo</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados fictícios de devoluções -->
+                        <tr>
+                            <td>10/12/2024</td>
+                            <td>João Silva</td>
+                            <td>Arroz 5kg</td>
+                            <td>Defeito na embalagem</td>
+                            <td>Processado</td>
+                        </tr>
+                        <tr>
+                            <td>09/12/2024</td>
+                            <td>Maria Oliveira</td>
+                            <td>Feijão 1kg</td>
+                            <td>Produto vencido</td>
+                            <td>Pendente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="promocoes">
+                <h2>Promoções Ativas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Promoção</th>
+                            <th>Produto</th>
+                            <th>Desconto</th>
+                            <th>Validade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados fictícios de promoções -->
+                        <tr>
+                            <td>Kit Café da Manhã</td>
+                            <td>Café, Pão, Manteiga</td>
+                            <td>20%</td>
+                            <td>15/12/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Kit Churrasco</td>
+                            <td>Carne, Carvão, Refrigerante</td>
+                            <td>10%</td>
+                            <td>20/12/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        
+    </main>
+    <footer>
+        <p>© 2024 Supermercado Inteligente. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

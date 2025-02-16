@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Inteligente</title>
+    <link rel="stylesheet" href="css/cabecarioefooter.css">
+    <link rel="stylesheet" href="css/Relatorios.css">
+</head>
+<body>
+    <header>
+        <h1>Supermercado Inteligente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Produto.html">Produtos</a></li>
+                <li><a href="Inventario.html">Inventário</a></li>
+                <li><a href="Vendas.html">Vendas</a></li>
+                <li><a href="Relatorios.html">Relatórios</a></li>
+                <li><a href="Clientes.html">Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <main>
+            <section id="gerar-relatorios">
+                <h2>Gerar Relatórios</h2>
+                <form>
+                    <label for="tipo-relatorio">Tipo de Relatório:</label>
+                    <select id="tipo-relatorio" name="tipo-relatorio" required>
+                        <option value="vendas">Relatório de Vendas</option>
+                        <option value="desempenho">Relatório de Desempenho</option>
+                    </select>
+    
+                    <label for="data-inicio">Data de Início:</label>
+                    <input type="date" id="data-inicio" name="data-inicio" required>
+    
+                    <label for="data-fim">Data de Fim:</label>
+                    <input type="date" id="data-fim" name="data-fim" required>
+    
+                    <button type="submit">Gerar Relatório</button>
+                </form>
+            </section>
+            <section id="relatorio-gerado">
+                <h2>Relatório Gerado</h2>
+                <p>Aqui aparecerá o relatório detalhado após a geração.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Preço Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dados de exemplo -->
+                        <tr>
+                            <td>10/12/2024</td>
+                            <td>João Silva</td>
+                            <td>Arroz 5kg</td>
+                            <td>2</td>
+                            <td>R$ 41,98</td>
+                        </tr>
+                        <tr>
+                            <td>09/12/2024</td>
+                            <td>Lucas Pereira</td>
+                            <td>Óleo 900ml</td>
+                            <td>3</td>
+                            <td>R$ 23,70</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        
+    </main>
+    <footer>
+        <p>© 2024 Supermercado Inteligente. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

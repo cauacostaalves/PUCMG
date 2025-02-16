@@ -1,0 +1,14 @@
+1- Considerando  sistemas  que  você  utiliza  no  seu  dia  a  dia  como  Instagram,  Uber, 
+Spotify, iFood, entre outros, você deverá apresentar as principais histórias de usuários, 
+listar os requisitos funcionais e requisitos não-funcionais, elaborar a matriz de 
+rastreabilidade e construir o modelo e casos de uso do sistema.
+
+HUs:
+Instagram - 
+Como usuario, eu desejo conseguir agendar a publicação das minhas fotos, dessa maneira fazendo publicaçoes automaticas.
+As publicaçoes agendadas devem ser publicadas em ate 2 segundos apos o horario agendado.
+Para conseguir agendar o usuario deve estar na platarforma por mais de 1 ano e ter mais de 1000 seguidores.
+
+Matriz:
+RF-1 | Publicaçoes agendadas | requisito funcional
+RNF-1|    

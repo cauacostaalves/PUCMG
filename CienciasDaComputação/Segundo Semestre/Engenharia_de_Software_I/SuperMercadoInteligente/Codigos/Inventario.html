@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Inteligente</title>
+    <link rel="stylesheet" href="css/cabecarioefooter.css">
+    <link rel="stylesheet" href="css/inventario.css">
+</head>
+<body>
+    <header>
+        <h1>Supermercado Inteligente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Produto.html">Produtos</a></li>
+                <li><a href="Inventario.html">Inventário</a></li>
+                <li><a href="Vendas.html">Vendas</a></li>
+                <li><a href="Relatorios.html">Relatórios</a></li>
+                <li><a href="Clientes.html">Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <main>
+            <section id="pesquisa-produto">
+                <h2>Pesquisar Produto</h2>
+                <form>
+                    <input type="text" id="pesquisar" name="pesquisar" placeholder="Digite o nome do produto...">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </section>
+            <section id="listar-inventario">
+                <h2>Inventário Atual</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Produtos fixos como exemplo -->
+                        <tr>
+                            <td>Arroz 5kg</td>
+                            <td>Alimentos</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Feijão 1kg</td>
+                            <td>Alimentos</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Óleo 900ml</td>
+                            <td>Alimentos</td>
+                            <td>40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="atualizar-inventario">
+                <h2>Atualizar Quantidade</h2>
+                <form id="form-atualizar-inventario">
+                    <label for="produto-id">ID do Produto:</label>
+                    <input type="text" id="produto-id" name="produto-id" readonly>
+    
+                    <label for="produto-nome">Nome do Produto:</label>
+                    <input type="text" id="produto-nome" name="produto-nome" readonly>
+    
+                    <label for="nova-quantidade">Nova Quantidade:</label>
+                    <input type="number" id="nova-quantidade" name="nova-quantidade" required>
+    
+                    <button type="submit">Salvar</button>
+                </form>
+            </section>
+        </main>
+        
+    </main>
+    <footer>
+        <p>© 2024 Supermercado Inteligente. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
