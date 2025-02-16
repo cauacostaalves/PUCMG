@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua Imagem</title>
+    <style>
+        .image-selection {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-selection img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+        }
+        .image-selection img:hover {
+            border-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Escolha sua Imagem</h2>
+    <div class="image-selection">
+        <img src="/volleyball/1.jpg" alt="Imagem 1" onclick="imagemSelecionada(this)">
+        <img src="/football/1.jpg" alt="Imagem 2" onclick="imagemSelecionada(this)">
+        <img src="/basketball/1.jpg" alt="Imagem 3" onclick="imagemSelecionada(this)">
+    </div>
+
+    <script></script>
+</body>
+</html>

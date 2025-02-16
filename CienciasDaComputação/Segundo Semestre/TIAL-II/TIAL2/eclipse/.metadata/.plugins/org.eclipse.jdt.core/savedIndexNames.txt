@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+D:\Ciencias_da_computaçao\TIAL2\eclipse\.metadata\.plugins\org.eclipse.jdt.core
