@@ -1,0 +1,256 @@
+
+Resumo dos slides de LP
+Cauã Costa Alves
+
+
+    1 - Introdução
+
+        A) O que é uma LP?
+        - Linguagem formal, composta por um conjunto de palavras sobre um alfabeto.
+        - Segundo Pratt, é qualquer notação para descrever algoritmos e estruturas de dados.
+        - Segundo MacLennan, uma LP deve ser capaz de expressar qualquer programa de computador.
+    
+        B) O que precisa para uma linguagem ser considerada LP?
+         Requisitos obrigatórios:
+           - Ser universal
+           - Poder ser implementada em um computador
+
+         Requisitos desejáveis:
+           - Ser natural
+           - Possuir implementação eficiente
+
+        C) Sintaxe vs. Semântica
+        - Sintaxe: Forma como expressões, comandos e declarações são combinados para formar programas.
+        - Semântica: Como os programas se comportam quando executados.
+
+        D) Paradigmas de LP:
+        - Definem o estilo de programação e a organização do código.
+        - Principais categorias:
+          - Imperativo (baseado em instruções, ex: C, Java, Python)
+          - Declarativo (baseado em regras, ex: SQL, Prolog, Haskell)
+        - Algumas linguagens podem misturar paradigmas, exemplo: Python (suporta funcional e OO).
+
+        E) Por que estudar LPs?
+        - Melhora a compreensão das linguagens utilizadas.
+        - Aumenta o vocabulário e facilita a escolha da melhor LP para um problema.
+        - Ajuda a aprender novas LPs e a projetar novas linguagens.
+
+        F) A importância das LPs na Computação
+        - LPs são fundamentais e se relacionam com áreas como:
+          - Bancos de Dados
+          - Sistemas Operacionais
+          - Redes de Computadores
+          - Inteligência Artificial
+
+
+    2 - História das Linguagens de Programação
+        
+        -A evolução das LPs reflete uma crescente abstração e sofisticação ao longo do tempo. Algumas das linguagens mais influentes incluem:
+            - FORTRAN (1954) introduziu expressões simbólicas e subprogramas.
+            - ALGOL60 (1958-1960) introduziu o conceito de bloco de código.
+            - LISP (1956) focou em funções sobre listas e árvores.
+            - C (1974) e C++ (1983) trouxeram a programação de sistemas e orientação a objetos.
+            Linguagens modernas, como Java, Python, e C#, surgiram para tornar as LPs mais acessíveis e multi-paradigma.
+
+    
+    3 - Valores
+
+        A) O que é um valor?
+            - É qualquer entidade que existe durante uma computação, Exemplo:
+               + Boolean, integer, Double.
+
+        B) Porque estudar valores?
+            - Valores são a materia prima da computação.
+
+        C) Tipos 
+            - O que é um tipo ?
+                - Um tipo em programação é a especificação da classe de valores que uma variável pode armazenar, além das operações que podem ser       realizadas sobre esses valores. Em outras palavras, um tipo define:
+                    + Quais valores podem ser atribuídos a uma variável.
+                    + Quais operações podem ser feitas com esses valores (como adição, multiplicação, comparações, etc.).
+                 
+            - Tipos Primitivos:
+                - São valores atômicos.
+                - LPs costumam dar nomes diferentes a seus tipos primitivos
+                - Exemplos: 
+                    + Inteiro
+                    + Real
+                    + Caractere
+                    + Lógico 
+            
+                - Representação subjacente invisivel, ou seja, a maneira como os valores são armazenados na memória não é visível.
+
+                - Em algumas LPs permitem a definição de um novo tipo primitivo enumerados, exemplo em java: 
+                    enum DiaSemana {
+                        DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO
+                    }
+
+            - Tipos Compostos: 
+                - Composto por tipos simples. 
+                - Grande variedade: tuplas, registros, arranjos, strings, listas, árvores, e arquivos.
+                - Mecanismo básicos de estruturação:
+                    a) Produto cartesiano:   
+                        +  Agrupa valores de diferentes tipos em um único conjunto, alguns exemplos são:
+                           Pascal:  
+                               type
+                                pessoa = record
+                                  nome: string[20];
+                                  idade: integer;
+                                  altura: real;
+                                end;
+
+                            Tupla em ML:
+                                type pessoa = string * int * real;
+
+                            Java:
+                                class Pessoa {
+                                     String nome;
+                                     int idade;
+                                     double altura;
+                                }
+
+                            Caso especial: 
+                                n = 0 – Não é um conjunto vazio, mas um conjunto contendo uma tupla sem elementos.  
+                                    – Ex.: unit em ML e void em Algol-68 e C.
+                    
+                    b) União Discriminada:
+                        - Permite que uma variável tenha diferentes variantes dependendo do valor de um discriminante(São valores que permitem acessar um campo, as vezes pode acessar um campo inexistente e dar um erro de execução). Ela é útil quando precisamos representar uma estrutura de dados complexa com alternativas distintas.
+                            Exemplos:
+                                + Em Pascal, utilizamos record e o campo case para implementar uniões discriminadas.
+                                    type item = record 
+                                        preco: real; 
+                                        case disponivel: boolean of 
+                                        true: (quantidade: integer; local: string); 
+                                        false: (mes_entrega:1..12) 
+                                    end;
+
+                                + Em C, usamos union juntamente com uma enumeração para controlar qual variante é usada.
+                                    typedef union {
+                                        struct {  // Variante 1: Disponível
+                                            int quantidade;
+                                            char local[20];
+                                        };
+                                        int mes_entrega;  // Variante 2: Não disponível
+                                    } item;
+
+                                    typedef enum { DISPONIVEL, NAO_DISPONIVEL } disponibilidade; ( DISCRIMINANTE)
+
+                                + Em Java, utilizamos herança para simular a união discriminada com classes diferentes representando as variantes.
+                                    // Classe base para o item
+                                    class Item {
+                                        public double preco;
+                                    }
+
+                                    // Subclasse para o item disponível
+                                    class ItemDisponivel extends Item {
+                                        public int quantidade;
+                                        public String local;
+                                    }
+
+                                    // Subclasse para o item não disponível
+                                    class ItemNaoDisponivel extends Item {
+                                        public int mesEntrega;
+                                    }
+
+                                    OBS: EM JAVA O DISCRIMINANTE SERIA UM IF NO MAIN DE ITEM DISPONIVEL E UM DO NAO DISPONIVEL.
+
+                        -Cada linguagem tem suas próprias formas de implementar e utilizar esse conceito, mas o princípio básico permanece o
+                         mesmo: uma estrutura que pode representar diferentes tipos de dados dependendo de uma condição.
+
+
+                    c) Mapeamento:
+                        - É um conceito fundamental em várias linguagens de programação, utilizado para associar valores de um conjunto a 
+                        valores de um tipo, como em arrays multidimensionais.
+                        - As funções também representam um tipo de mapeamento, mas no caso das abstrações de funções, elas implementam um comportamento algorítmico, podendo acessar e modificar variáveis não-locais.
+                        - Exemplos: 
+                            + Pascal: 
+                            Função Matriz
+                                type 
+                                    matriz = array [1..10, 0..20] of real;
+
+                            Função Quadrado 
+                                function quadrado(x: real): real;
+                                    begin
+                                      quadrado := x * x;
+                                    end;
+                            
+                            + Java: 
+                            Função Matriz
+                                double matriz[10][21];
+
+                                // Atribuindo valores
+                                matriz[0][0] = 5.5;
+                                matriz[9][20] = 10.5;
+
+                            Função Quadrado 
+                                double quadrado(double x) {
+                                    return x * x;
+                                }
+
+
+                    d) Sequência 
+                        - É uma estrutura de dados que pode armazenar um número variável de elementos de um tipo específico, comumente utilizada em linguagens de programação para representar strings, listas, e arquivos sequenciais.
+                        -Operações típicas em sequências incluem concatenação, seleção do primeiro elemento, substring (fatia), e ordenação lexicográfica.
+                        -Cada linguagem tem uma forma própria de lidar com sequências, seja com strings, arrays, ou listas, mas o conceito central permanece o mesmo: uma sequência é uma coleção ordenada de elementos.
+                        
+                        Exemplo em java:
+                            String str1 = "Olá"; // a string é uma sequencia de caracter em java.
+                            String str2 = " Mundo!";
+
+                            // Concatenação
+                            String resultado = str1 + str2;
+                            System.out.println("Resultado da concatenação: " + resultado);
+
+                            // Seleção do primeiro elemento
+                            System.out.println("Primeiro caractere de str1: " + str1.charAt(0));
+
+                            // Substring (fatia)
+                            System.out.println("Substring de str2: " + str2.substring(1, 6)); 
+
+
+                    e) Conjunto potência
+                        - Conjunto potência é uma maneira de representar todas as possibilidades de agrupamento dos elementos de um conjunto.
+                        - O número de subconjuntos de um conjunto S com n elementos é 2^n.
+                        - Operações comuns em conjuntos potência incluem união, interseção e verificação de pertencimento.
+
+                        Exemplo em java: 
+                            HashSet<String> sobras = new HashSet<>(); // Em Java, a manipulação de conjuntos (como em Pascal) pode ser feita com a classe HashSet, permitindo operações como adição de elementos
+                            HashSet<String> salada = new HashSet<>();
+                    
+                            // Adicionando elementos ao conjunto 'sobras'
+                            sobras.add("alface");
+                    
+                            // Adicionando uma faixa de ingredientes ao conjunto 'salada'
+                            String[] ingredientes = {"cenoura", "couve", "cebola"};
+                            for (String ingrediente : ingredientes) {
+                                salada.add(ingrediente);
+                            }
+                    
+                            // Verificando se 'feijao' está em 'sobras'
+                            if (!sobras.contains("feijão")) {
+                                // Adicionando a união de 'sobras' à 'salada'
+                                salada.addAll(sobras);
+                            }
+                    
+                            // Imprimindo o conjunto 'salada'
+                            System.out.println("Ingredientes da salada: " + salada);
+
+                        RESUMO: Se as sobras nao atende a um requisito, então se faz a união com a salada. 
+
+
+                    f) Recursão 
+                        - A recursão em tipos de dados ocorre quando um tipo de dados faz referência a si mesmo. Isso permite a criação de estruturas de dados com tamanho e complexidade arbitrária, como listas ou árvores. Tipos recursivos são frequentemente implementados usando ponteiros e têm cardinalidade infinita, ou seja, podem crescer indefinidamente.
+
+                        Exemplo em java:
+
+                         // Construindo a árvore
+                        raiz.esq = noB;  // A esquerda de A é B
+                        raiz.dir = noC;  // A direita de A é C
+
+                        Quando estamos construindo uma arvore estamos usando recursão para que os nos se liguem automaticamente.
+
+                    
+            -Sistema de tipos:
+                                            
+
+
+

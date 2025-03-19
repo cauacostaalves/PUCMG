@@ -1,0 +1,49 @@
+Linguagens de Programação
+Prova 01 - 15 pontos
+Professor Marco Rodrigo Costa
+
+Questão 01 (03 pontos - 15 minutos): Escolha um dos requisitos para uma linguagem ser considerada uma Linguagem de
+Programação e explique-o.
+
+Para ser considerada uma linguagem de programação, a linguagem deve ser Turing-completa. Isso significa que ela precisa permitir a manipulação de 
+loops, variáveis, funções e condições, garantindo que possa executar qualquer computação possível, desde que tenha tempo e memória suficientes.
+
+
+Questão 02 (06 pontos - 30 minutos): Para cada afirmativa abaixo, assinale 'V' para as verdadeiras e 'F' ´para as
+falsas. Justifique apenas as afirmativas falsas.
+
+a) (V) Linguagem de Programação (LP) ocupa posição central na Ciência da Computação.
+b) (F) Implementar uma LP significa o mesmo que projetá-la.
+c) (V) LPs diferentes podem dar nomes diferentes a seus tipos primitivos.
+d) (F) Conjuntos, em Pascal, podem ser atualizados seletivamente.
+e) (F) Os armazenáveis são dependentes da LP em questão.
+f) (F) Referências "penduradas" são indesejadas, mas não podem causar erros de execução.
+
+
+Questão 03 (06 pontos - 25 minutos): Considerando o seguinte programa em C:
+
+int a = 10;
+void f ( ) {
+	int b = 10;
+	static int c = 10;
+	
+	printf( "a = %d, b = "%d, c = %d\n", a, b, c );
+	a = a + 20;
+	b = b + 10;
+	c = c + 10;
+}
+
+void main ( ) {
+	while( a <= 100 )
+		f ( );
+}
+
+a) (03 pontos - 10 minutos) Qual a saída deste programa? a = 90, b = 10, c = 50
+
+b) (03 pontos - 10 minutos) Classifique as variáveis presentes quanto a seus tempo de vida, e mostre seus tempos de vida
+de forma esquemática, de acordo com a execução do programa.
+a  b c b' b b' b b'  b b' b b'   c' a
+-------------------------------------
+
+
+// EOF
