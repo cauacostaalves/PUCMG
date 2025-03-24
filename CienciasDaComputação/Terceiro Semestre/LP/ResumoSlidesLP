@@ -249,8 +249,113 @@ Cauã Costa Alves
                         Quando estamos construindo uma arvore estamos usando recursão para que os nos se liguem automaticamente.
 
                     
-            -Sistema de tipos:
-                                            
+            - Sistema de tipos:
+                - Tipagem Estática oferece segurança ao garantir que todos os tipos sejam verificados antes da execução.
+                - Tipagem Dinâmica oferece flexibilidade, permitindo que os tipos sejam definidos durante a execução, mas torna o programa mais lento devido à verificação em tempo de execução.
+                Exemplo Dinâmico: 
+                    inicio 
+                        ler um string; 
+                        se o string representa um literal inteiro 
+                        entao item := valor numerico do string 
+                        senao item := proprio string 
+                    fim 
+                    OBS: o código acima permitiria, por exemplo, a leitura de um mês 
+                    como 2 ou FEV.    
+
+                Exemplo estático:
+                    int numero = 10;  // Tipo 'int' definido no momento da compilação
+                    String texto = "Olá, Mundo!";  // Tipo 'String' também definido estaticamente
 
 
+            - Equivalência de tipos: 
+                - Estrutural 
+                    + Duas variáveis têm tipos compatíveis se possuem a mesma estrutura, ou seja, têm o mesmo número e tipo de campos ou componentes.
+                    + Exemplo: Se duas variáveis são arrays de 20 inteiros, elas são estruturalmente equivalentes, mesmo que tenham nomes diferentes.
+                - Nome 
+                    + Duas variáveis têm tipos compatíveis se possuem o mesmo nome de tipo (definido pelo usuário ou primitivo) ou aparecem na mesma declaração.
+                    + Exemplo: Se um tipo t é definido como array[1..20] of integer, todas as variáveis declaradas com esse tipo serão compatíveis pela equivalência de nomes, mesmo que seus valores possam ser diferentes
+
+                    Exemplo em java :
+                        TipoArray a = new TipoArray();  // 'a' é do tipo TipoArray
+                        TipoArray b = new TipoArray();  // 'b' é do tipo TipoArray
+                        int[] c = new int[20];  // 'c' é um array do tipo int[]
+                        TipoArray d = a;  // 'd' é do tipo TipoArray, igual a 'a'
+
+
+            - Princípio da Completeza de Tipo:
+                - O Princípio da Completeza de Tipo garante que as LPs ofereçam maior flexibilidade e poder de expressão ao não restringir operações arbitrariamente. Isso permite que os valores de primeira classe sejam manipulados de todas as formas possíveis, oferecendo maior potência para o programador.
+                - Valores de Primeira Classe podem ser manipulados livremente, como no exemplo de JavaScript, onde funções são tratadas como valores normais que podem ser passados e atribuídos.
+                - Valores de Segunda Classe têm restrições quanto ao que podem fazer, como em Java, onde as funções precisam ser manipuladas por meio de interfaces ou outras construções especiais.
+
+            
+            - Expressões:
+                - Frases de programa que podem ser avaliadas a fim de fornecer um valor 
+                    a) Literal 
+                        - Literais são valores fixos e constantes atribuídos diretamente às variáveis. Em Java, inteiros como 1, decimais como 1.5, e caracteres como 'b' são exemplos de literais.
+
+                    b) Agregado
+                        - Conjunto de literais.
+                        Exemplo em java:
+                            double a = 4.0;
+                            double b = 8.0;
+
+                            // Criando um agregado (array) com resultados de expressões
+                            double[] resultado = {a * 2.0, b / 2.0};
+                        - O array resultado é um exemplo de agregado que contém os resultados das expressões a * 2.0 e b / 2.0.
+
+                    c) Chamada de função 
+                        - É um conceito fundamental em programação, onde você aplica uma função a um ou mais argumentos para calcular um resultado.
+                        Exemplo em java de chamada simples:
+                            // Função que recebe um argumento e retorna o seu quadrado
+                            public static int quadrado(int x) {
+                                return x * x;
+                            }
+                        
+                            public static void main(String[] args) {
+                                int resultado = quadrado(5);  // Chamada de função
+                                System.out.println("O quadrado de 5 é: " + resultado);
+                            }
+
+                        Exemplo em java de chamada com condição:
+                            // Funções para cálculo de seno e cosseno
+                            public static double seno(double x) {
+                                return Math.sin(x);
+                            }
+
+                            public static double cosseno(double x) {
+                                return Math.cos(x);
+                            }
+
+                            public static void main(String[] args) {
+                                double x = Math.PI / 4; // 45 graus
+                                boolean cond = true; // Condição para decidir qual função usar
+
+                                // Chamada de função condicional
+                                double resultado = cond ? seno(x) : cosseno(x);
+
+                                System.out.println("Resultado: " + resultado);
+                            }
+                    
+                    d) Expressão condicional 
+                        -  É  uma expressão composta que possui várias subexpressões, mas somente uma delas será avaliada dependendo da condição fornecida. Ou seja, a escolha da subexpressão a ser avaliada depende de uma expressão booleana que atua como condição.
+                        Exemplo:
+                            int resultado = (a > b) ? a : c;
+
+                    e) Acesso a variáveis e constantes
+                        - Acessar variáveis significa ler seu valor e possivelmente modificá-lo.
+                        - Acessar constantes permite ler o valor, mas não modificá-lo após a inicialização.
+
+
+    4 - Armazenamento
+
+        - Variáveis
+            - Uma variável é um objeto que armazena um valor, representando um estado que pode ser alterado ao longo do tempo. Diferente das variáveis matemáticas, que representam valores fixos, variáveis em programação podem ser atualizadas. Exemplo : x = x + 1;
+
+        - Variáveis Compostas 
+            - São formadas por outras variáveis dentro de uma mesma estrutura.
+            - Podem ser acessadas individualmente, sem precisar modificar toda a estrutura.
+            - Exemplo de variáveis compostas: arrays, objetos, registros, tuplas e listas.
+
+        - Variáveis arranjo 
+            - 
 
