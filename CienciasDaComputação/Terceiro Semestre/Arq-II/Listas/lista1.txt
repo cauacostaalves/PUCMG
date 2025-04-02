@@ -1,0 +1,133 @@
+Lista de exercíios 1 AC II
+Aluno: Cauã Costa Alves 
+Matrícula: 855926
+
+1) Quais dos seguintes números hexadecimais são válidos ?
+ FACA, BED, CAFE, CAB, CABO, DAD, DACADA, CADA, BAG, FADA, CABO
+
+R: FACA , BED, CAFE, CAB, DAD, DACADA, CADA, FADA
+
+
+2) Converter os seguinte números para as bases indicadas:  
+a) (1984) 10 ....... ( ) 2 
+1984/2 
+0   992/2
+0      496/2
+0         248/2
+0            124/2
+0               62/2
+0                 31/2
+1                   15/2
+1                     7/2
+1                       3/2
+1                         1 R: 0111 1100 0000   
+
+b) (1A0) 16 ....... ( ) 2 
+R: 0001 1010 0000 
+
+c) (703) 8 ....... ( ) 16
+703 (8) --> 7*8^2 + 0 + 3 * 8^0 = 451 (10)
+451 (10) -->  1C3 (16)
+451/16
+3   28/16
+12    1  = 1 C 3 
+
+d) (1008) 16 ....... ( ) 2
+R: 0001 0000 0000 1000
+
+e) (200) 10 ....... ( ) 16 
+200/16
+8  12 = C 8 
+
+
+3) Marque a afirmativa incorreta, se houver:  
+a) 1000 está na base 2       b) 1020 está na base 8
+c) 1010 está na base 10      d) 1AB0 está na base 16 
+e) 1028 está na base 8
+
+R: e, está incorreta pois não existe 8 na bse 8 vai ate 7.
+
+
+4) Calcule, fornecendo o resultado na base 10:  
+a) (1010) 2 + (111) 2 =    
+  1010
+ + 111
+ = 1 0001
+1* 2^4 + 0 + 0 + 0 + 1* 2^0 = 17   
+
+b) (101001) 2 + (1101110) 2 =
+101001 (2) --> 1*2^5 + 0 + 1*2^3 + 0 + 0 + 1*2^0 = 32+9 = 41 (10)
+1101110 (2) --> 1*2^6 + 1*2^5 + 0 + 1*2^3 + 1*2^2 + 1*2^1 + 0 = 64 + 32 + 8 + 4 + 2 = 110(10) 
+110 + 41 = 151
+
+
+5) Execute as seguintes operações:  
+a) (4A3) 16 + (D13) 16 = 
+  4A3 
+- D13
+= 
+
+b) (ABCD) 16 + (EF01) 16 =  
+c) (109A) 16 + (2D10) 16 = 
+d) (101) 2 + (1011) 2 =    
+e) (107) 8 + (116) 8 =    
+f) (101) 8 + (214) 8 =    
+g) (763) 8 + (367) 8 =  
+h) (376) 8 -  (277) 8 =  
+i) (2133) 8 + (1574) 8 =          
+j) (A17) 16 - (26B) 16 =
+k) (FADE) 16 + (2C3F) 16 =  
+l) (AB) 16 - (100) 8 =
+
+
+6)Converter os números abaixo:  
+a) (11011,101) 2 ...... ( ) 10
+1*2^4 + 1*2^3 + 0 *2 + 1*2^1 + 1*2^0 + 1*2^-1 + 0*2 + 1*2^-3 = 16 + 8 + 2 + 0,5 + 0,125 = 26,625 (10)
+ 
+b) (34,18) 10 ...... ( ) 2 com 4 casas fracionárias 
+34/2
+0  17/2
+1    8/2
+0     4/2
+0       2/2
+0         1 = 0010 0010,0010
+
+0,18 * 2 = 0,36
+0,36 * 2 = 0,72
+0,72 * 2 = 1,44
+0,44 * 2 = 0,88
+
+
+7) A maioria das pessoas só pode contar com seus dedos, entretanto quem trabalha 
+com computador pode fazer melhor. Se você olhar cada dedo seu como um dígito binário,
+sendo o dedo estendido igual a 1 e recolhido igual a 0, até quanto você pode contar
+usando as duas mãos e os dois pés ?
+R: 20 dedos = 1111 1111 1111 1111 1111 = 2^20 - 1 = 1.048.575
+
+
+8)Um disco voador sobrevoando a Terra largou duas caixas. Na primeira, estava gravado,
+entre outras coisas, a quantidade de objetos nela contidos, quantidade esta representada
+pelos símbolos $#&. Na segunda caixa estava gravado @$&,também representando a quantidade
+de objetos. Abrindo-se a primeira caixa,encontrou-se 110 objetos. Foi encontrado, também, 
+um documento onde havia vários cálculos, sendo um deles o seguinte:
+
+% & $           1 = $, 1 = #, 0 = &  
+? @ #           ? = @, 1 = $, 0 = &
+-------- 
+% # % $ 
+
+Verificou-se todos os cálculos deste documento e conclui-se que todos os símbolos 
+usados e necessários a quaisquer operações, eram os que tinham aparecido nas 
+informações acima. Quantos objetos encontraríamos se abríssemos a segunda caixa 
+
+
+9)Mostrar se para as somas a seguir haverá um vai1 para fora do número (use CLA):
+a) FACA + BABA
+
+
+b) 3AF1 + 45EA
+
+
+10)Como funciona basicamente o algoritmo de um multiplicador Booth ?
+
+11)Construir um circuito de um multiplicador paralelo que multiplique dois números de 3 bits.
