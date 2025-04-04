@@ -1,133 +1,241 @@
-Lista de exercíios 1 AC II
-Aluno: Cauã Costa Alves 
-Matrícula: 855926
+public class lista1{
+  public static void main(StringArgs[]){
 
-1) Quais dos seguintes números hexadecimais são válidos ?
- FACA, BED, CAFE, CAB, CABO, DAD, DACADA, CADA, BAG, FADA, CABO
+      System.out.println("Lista de exercíios 1 AC II
+      Aluno: Cauã Costa Alves 
+      Matrícula: 855926
 
-R: FACA , BED, CAFE, CAB, DAD, DACADA, CADA, FADA
+      1) Quais dos seguintes números hexadecimais são válidos ?
+       FACA, BED, CAFE, CAB, CABO, DAD, DACADA, CADA, BAG, FADA, CABO
 
-
-2) Converter os seguinte números para as bases indicadas:  
-a) (1984) 10 ....... ( ) 2 
-1984/2 
-0   992/2
-0      496/2
-0         248/2
-0            124/2
-0               62/2
-0                 31/2
-1                   15/2
-1                     7/2
-1                       3/2
-1                         1 R: 0111 1100 0000   
-
-b) (1A0) 16 ....... ( ) 2 
-R: 0001 1010 0000 
-
-c) (703) 8 ....... ( ) 16
-703 (8) --> 7*8^2 + 0 + 3 * 8^0 = 451 (10)
-451 (10) -->  1C3 (16)
-451/16
-3   28/16
-12    1  = 1 C 3 
-
-d) (1008) 16 ....... ( ) 2
-R: 0001 0000 0000 1000
-
-e) (200) 10 ....... ( ) 16 
-200/16
-8  12 = C 8 
+      R: FACA , BED, CAFE, CAB, DAD, DACADA, CADA, FADA
 
 
-3) Marque a afirmativa incorreta, se houver:  
-a) 1000 está na base 2       b) 1020 está na base 8
-c) 1010 está na base 10      d) 1AB0 está na base 16 
-e) 1028 está na base 8
+      2) Converter os seguinte números para as bases indicadas:  
+      a) (1984) 10 ....... ( ) 2 
+      1984/2 
+      0   992/2
+      0      496/2
+      0         248/2
+      0            124/2
+      0               62/2
+      0                 31/2
+      1                   15/2
+      1                     7/2
+      1                       3/2
+      1                         1 R: 0111 1100 0000   
 
-R: e, está incorreta pois não existe 8 na bse 8 vai ate 7.
+      b) (1A0) 16 ....... ( ) 2 
+      R: 0001 1010 0000 
 
+      c) (703) 8 ....... ( ) 16
+      703 (8) --> 7*8^2 + 0 + 3 * 8^0 = 451 (10)
+      451 (10) -->  1C3 (16)
+      451/16
+      3   28/16
+      12    1  = 1 C 3 
 
-4) Calcule, fornecendo o resultado na base 10:  
-a) (1010) 2 + (111) 2 =    
-  1010
- + 111
- = 1 0001
-1* 2^4 + 0 + 0 + 0 + 1* 2^0 = 17   
+      d) (1008) 16 ....... ( ) 2
+      R: 0001 0000 0000 1000
 
-b) (101001) 2 + (1101110) 2 =
-101001 (2) --> 1*2^5 + 0 + 1*2^3 + 0 + 0 + 1*2^0 = 32+9 = 41 (10)
-1101110 (2) --> 1*2^6 + 1*2^5 + 0 + 1*2^3 + 1*2^2 + 1*2^1 + 0 = 64 + 32 + 8 + 4 + 2 = 110(10) 
-110 + 41 = 151
-
-
-5) Execute as seguintes operações:  
-a) (4A3) 16 + (D13) 16 = 
-  4A3 
-- D13
-= 
-
-b) (ABCD) 16 + (EF01) 16 =  
-c) (109A) 16 + (2D10) 16 = 
-d) (101) 2 + (1011) 2 =    
-e) (107) 8 + (116) 8 =    
-f) (101) 8 + (214) 8 =    
-g) (763) 8 + (367) 8 =  
-h) (376) 8 -  (277) 8 =  
-i) (2133) 8 + (1574) 8 =          
-j) (A17) 16 - (26B) 16 =
-k) (FADE) 16 + (2C3F) 16 =  
-l) (AB) 16 - (100) 8 =
+      e) (200) 10 ....... ( ) 16 
+      200/16
+      8  12 = C 8 
 
 
-6)Converter os números abaixo:  
-a) (11011,101) 2 ...... ( ) 10
-1*2^4 + 1*2^3 + 0 *2 + 1*2^1 + 1*2^0 + 1*2^-1 + 0*2 + 1*2^-3 = 16 + 8 + 2 + 0,5 + 0,125 = 26,625 (10)
- 
-b) (34,18) 10 ...... ( ) 2 com 4 casas fracionárias 
-34/2
-0  17/2
-1    8/2
-0     4/2
-0       2/2
-0         1 = 0010 0010,0010
+      3) Marque a afirmativa incorreta, se houver:  
+      a) 1000 está na base 2       b) 1020 está na base 8
+      c) 1010 está na base 10      d) 1AB0 está na base 16 
+      e) 1028 está na base 8
 
-0,18 * 2 = 0,36
-0,36 * 2 = 0,72
-0,72 * 2 = 1,44
-0,44 * 2 = 0,88
+      R: e, está incorreta pois não existe 8 na bse 8 vai ate 7.
 
 
-7) A maioria das pessoas só pode contar com seus dedos, entretanto quem trabalha 
-com computador pode fazer melhor. Se você olhar cada dedo seu como um dígito binário,
-sendo o dedo estendido igual a 1 e recolhido igual a 0, até quanto você pode contar
-usando as duas mãos e os dois pés ?
-R: 20 dedos = 1111 1111 1111 1111 1111 = 2^20 - 1 = 1.048.575
+      4) Calcule, fornecendo o resultado na base 10:  
+      a) (1010) 2 + (111) 2 =    
+        1010
+       + 111
+       = 1 0001
+      1* 2^4 + 0 + 0 + 0 + 1* 2^0 = 17   
+
+      b) (101001) 2 + (1101110) 2 =
+      101001 (2) --> 1*2^5 + 0 + 1*2^3 + 0 + 0 + 1*2^0 = 32+9 = 41 (10)
+      1101110 (2) --> 1*2^6 + 1*2^5 + 0 + 1*2^3 + 1*2^2 + 1*2^1 + 0 = 64 + 32 + 8 + 4 + 2 = 110(10) 
+      110 + 41 = 151
 
 
-8)Um disco voador sobrevoando a Terra largou duas caixas. Na primeira, estava gravado,
-entre outras coisas, a quantidade de objetos nela contidos, quantidade esta representada
-pelos símbolos $#&. Na segunda caixa estava gravado @$&,também representando a quantidade
-de objetos. Abrindo-se a primeira caixa,encontrou-se 110 objetos. Foi encontrado, também, 
-um documento onde havia vários cálculos, sendo um deles o seguinte:
+      5) Execute as seguintes operações:  
+      a) (4A3) 16 + (D13) 16 = 
+        4A3 
+      - D13
+      = 
 
-% & $           1 = $, 1 = #, 0 = &  
-? @ #           ? = @, 1 = $, 0 = &
--------- 
-% # % $ 
-
-Verificou-se todos os cálculos deste documento e conclui-se que todos os símbolos 
-usados e necessários a quaisquer operações, eram os que tinham aparecido nas 
-informações acima. Quantos objetos encontraríamos se abríssemos a segunda caixa 
-
-
-9)Mostrar se para as somas a seguir haverá um vai1 para fora do número (use CLA):
-a) FACA + BABA
-
-
-b) 3AF1 + 45EA
+      b) (ABCD) 16 + (EF01) 16 =  
+      c) (109A) 16 + (2D10) 16 = 
+      d) (101) 2 + (1011) 2 =    
+      e) (107) 8 + (116) 8 =    
+      f) (101) 8 + (214) 8 =    
+      g) (763) 8 + (367) 8 =  
+      h) (376) 8 -  (277) 8 =  
+      i) (2133) 8 + (1574) 8 =          
+      j) (A17) 16 - (26B) 16 =
+      k) (FADE) 16 + (2C3F) 16 =  
+      l) (AB) 16 - (100) 8 =
 
 
-10)Como funciona basicamente o algoritmo de um multiplicador Booth ?
+      6)Converter os números abaixo:  
+      a) (11011,101) 2 ...... ( ) 10
+      1*2^4 + 1*2^3 + 0 *2 + 1*2^1 + 1*2^0 + 1*2^-1 + 0*2 + 1*2^-3 = 16 + 8 + 2 + 0,5 + 0,125 = 26,625 (10)
 
-11)Construir um circuito de um multiplicador paralelo que multiplique dois números de 3 bits.
+      b) (34,18) 10 ...... ( ) 2 com 4 casas fracionárias 
+      34/2
+      0  17/2
+      1    8/2
+      0     4/2
+      0       2/2
+      0         1 = 0010 0010,0010
+
+      0,18 * 2 = 0,36
+      0,36 * 2 = 0,72
+      0,72 * 2 = 1,44
+      0,44 * 2 = 0,88
+
+
+      7) A maioria das pessoas só pode contar com seus dedos, entretanto quem trabalha 
+      com computador pode fazer melhor. Se você olhar cada dedo seu como um dígito binário,
+      sendo o dedo estendido igual a 1 e recolhido igual a 0, até quanto você pode contar
+      usando as duas mãos e os dois pés ?
+      R: 20 dedos = 1111 1111 1111 1111 1111 = 2^20 - 1 = 1.048.575
+
+
+      8)Um disco voador sobrevoando a Terra largou duas caixas. Na primeira, estava gravado,
+      entre outras coisas, a quantidade de objetos nela contidos, quantidade esta representada
+      pelos símbolos $#&. Na segunda caixa estava gravado @$&,também representando a quantidade
+      de objetos. Abrindo-se a primeira caixa,encontrou-se 110 objetos. Foi encontrado, também, 
+      um documento onde havia vários cálculos, sendo um deles o seguinte:
+
+      % & $            
+      ? @ #           
+      -------- 
+      % # % $ 
+
+      R: 532 --> 5*6^2 + 3*6^1 + 2*6^0 = 200
+
+      Verificou-se todos os cálculos deste documento e conclui-se que todos os símbolos 
+      usados e necessários a quaisquer operações, eram os que tinham aparecido nas 
+      informações acima. Quantos objetos encontraríamos se abríssemos a segunda caixa 
+
+
+      9)Mostrar se para as somas a seguir haverá um vai1 para fora do número (use CLA):
+      a) FACA + BABA
+
+               1111 1010 1100 1010
+               1011 1010 1011 1010
+              ----------------------
+      P(or)  = 1111 1010 1111 1010 = FAFA
+      G(and) = 1011 1010 1000 1010 = BA8A
+
+      b) 3AF1 + 45EA
+
+              0011 1010 1111 0001
+              0100 0101 1110 1010
+            -----------------------
+      P(or)  = 0111 1111 1111 1011 = 7FFB
+      G(and) = 0000 0000 1110 0000 = 00E0
+
+
+      10)Como funciona basicamente o algoritmo de um multiplicador Booth ?
+
+      11)Construir um circuito de um multiplicador paralelo que multiplique dois números de 3 bits.
+
+                                      Lei de Amdahl
+
+      12) Considere que a memória cache seja 5 vezes mais rápida que a memória principal.
+      Se ela será utilizada 90% do tempo, qual o Speedup total proporcionado pelo uso da
+      Cache?
+
+      Sup(total) = tmp/sem melhoria / tmp/com melhoria
+
+      Sup(total) = 1 / (1-Fm) + Fm/Sup(melhorado)
+
+      Sup(total) = 1/ (1-0,9) + 0,9/5
+      Sup(total) = 3,57
+
+
+      13) Considere que um processador sofrerá o acoplamento de um coprocessador aritmético. Este 
+      coprocessador é capaz de tornar as operações 5 vezes mais rápidas.
+
+      a) Qual o Speedup se utilizarmos o coprocessador 50% do tempo?
+
+
+      b) Qual deveria ser a utilização do coprocessador para obtermos uma melhoria total de 2 
+      vezes?
+
+
+      c) Considere que iremos utilizar o coprocessador 50% do tempo, quantas vezes esse 
+      coprocessador deverá tornar as operações mais rápidas se eu preciso de uma melhoria 
+      total mínima de 2.5 vezes?
+
+
+      14) Podemos substituir um processador por outro 5 vezes mais rápido por 5 vezes o seu preço. 
+      Sabe-se que o processador será utilizado em 50% do tempo, o restante deverá aguardar 
+      operações de I/O. Se o processador corresponde a 1/3 do preço da
+      máquina, essa alteração é válida?
+      (Obs.: Use uma simples relação custo/ganho)
+
+
+      15) As implementações em FP (ponto flutuante). Em especial as operações de raiz quadrada, 
+      variam significativamente em performance. Suponha que as FPSQR (raízes em FP) são 
+      responsáveis por 20% do tempo de execução em uma máquina. Nossa proposta é adicionar 
+      um hardware (coprocessador) que acelere esta operação por um fator de 10. Existe uma outra 
+      proposta que é a de melhorar todas as operações de FP. As operações de FP são responsáveis 
+      por 50% do tempo de execução. Os projetistas acreditam que podem melhorar as instruções 
+      de FP por um fator de 2 usando os mesmos recursos que usariam para as FPSQR.4
+      Qual a melhor alternativa?
+
+      FP = 50% --> melhoria de 2 x
+      FPSQR = 20% --> melhoria de 10 x
+
+      Sup(FP) = 1 / ((1 - 0,5) + 0,5/2) = 1,333
+
+      Sup(FPSQR) = 1/ ((1-0,2) + 0,2/10) = 1,219
+
+
+      16) Suponha que tenhamos melhorado uma parcela do tempo de execução de uma máquina por 
+      um fator de 10. Esse modo melhorado é usado 50% do tempo medido como porcentagem 
+      “quando o melhoramento está implementado”.
+      a) Qual o Speedup obtido com o melhoramento?
+      10 = 1/0,5 + 0,5/x
+
+
+      b) Qual a porcentagem de tempo de execução inicial foi convertida para esse modo 
+      rápido?
+
+
+                              Equação da CPU
+
+      17) Um programa roda em 10s em uma máquina A que possui um clock de 400MHz.
+      Queremos um speedup de 1.5 ao executar esse mesmo programa em uma máquina B. A 
+      máquina B poderá sofrer um overclock substancial sem nenhuma seqüela adicional, 
+      entretanto exigirá 1,2 vezes mais ciclos de clock para executar as instruções do que a 
+      máquina A.
+      Qual a frequencia de clock necessária para a máquina B?
+
+
+      18) Considere um programa com 1000 somas. Suponha que eu gaste 1 ciclo de máquina para cada 
+      soma. Se a máquina opera a 100 MHz, quanto tempo o programa demora?
+
+      19) Considere uma máquina e 2 programas diferentes que serão executados. O primeiro possui 
+      2000 instruções e o segundo possui 3000 instruções.
+      Qual o tempo de execução de cada um considerando um CPI de 5 e a freqüência da máquina 
+      de 100 MHz. Qual o speedup?
+
+      20) Em uma máquina operando a 100MHz, irei executar um programa que possui 2 tipos de 
+      instruções, instruções aritméticas e instruções de desvio.O programa possui
+      10000 instruções, onde 60% são as instruções aritméticas o restante corresponde às 
+      instruções de desvio. O CPI para as instruções aritméticas é 4 e para as outras instruções é 5.
+      • Qual o CPI médio da máquina
+      • Considere um novo hardware onde o CPI para as instruções aritméticas passe a ser 3. 
+      Qual o speedup sobre a máquina original?");
+  }
+}
