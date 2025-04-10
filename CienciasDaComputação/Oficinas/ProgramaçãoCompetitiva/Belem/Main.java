@@ -7,23 +7,23 @@ public class Main {
 
     public static void TesteGOL(char tmp1, char tmp2) {
         if (tmp1 == 'R') {
-            if (tmp2 == 'B') {
+            if (tmp2 == 'G') {
                 R += 2;
-            } else if (tmp2 == 'G') {
+            } else if (tmp2 == 'B') {
                 R += 1;
             }
         }
         if (tmp1 == 'G') {
-            if (tmp2 == 'R') {
+            if (tmp2 == 'B') {
                 G += 2;
-            } else if (tmp2 == 'B') {
+            } else if (tmp2 == 'R') {
                 G += 1;
             }
         }
         if (tmp1 == 'B') {
-            if (tmp2 == 'G') {
+            if (tmp2 == 'R') {
                 B += 2;
-            } else if (tmp2 == 'R') {
+            } else if (tmp2 == 'G') {
                 B += 1;
             }
         }
@@ -48,11 +48,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int C = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine(); // limpa o buffer 
 
         while (C > 0) {
             int QTDgols = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); // limpa o buffer 
             for (int i = 0; i < QTDgols; i++) {
                 String tmp = sc.nextLine();
                 char tmp1 = tmp.charAt(0);
