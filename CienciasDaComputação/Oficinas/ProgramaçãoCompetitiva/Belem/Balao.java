@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main2 {
+public class Balao {
  
     public static void main(String[] args)  {
  
@@ -17,7 +17,7 @@ public class Main2 {
         int resposta =(int) (QTDgas/resp);
 
         System.out.println(resposta);
-        
+        sc.close();
     }
  
 }

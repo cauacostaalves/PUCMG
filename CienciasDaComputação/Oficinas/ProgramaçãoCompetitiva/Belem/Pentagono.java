@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.*;
 
-public class Main3 {
+public class Pentagono {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Tribol {
     static int G = 0;
     static int R = 0;
     static int B = 0;
