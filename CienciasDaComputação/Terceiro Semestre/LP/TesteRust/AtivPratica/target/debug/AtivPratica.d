@@ -1,0 +1,1 @@
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro\ Semestre\LP\TesteRust\AtivPratica\target\debug\AtivPratica.exe: D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro\ Semestre\LP\TesteRust\AtivPratica\src\main.rs

@@ -1,0 +1,9 @@
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\bevy_derive-97e4a7a5bef77b29.dll: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\app_plugin.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\bevy_main.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\derefs.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\enum_variant_meta.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\bevy_derive-97e4a7a5bef77b29.d: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\app_plugin.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\bevy_main.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\derefs.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\enum_variant_meta.rs
+
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\lib.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\app_plugin.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\bevy_main.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\derefs.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\bevy_derive-0.13.2\src\enum_variant_meta.rs:

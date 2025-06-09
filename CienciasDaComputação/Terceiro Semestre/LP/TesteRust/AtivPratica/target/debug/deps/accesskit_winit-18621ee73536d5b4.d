@@ -1,0 +1,9 @@
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libaccesskit_winit-18621ee73536d5b4.rmeta: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\mod.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\windows.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libaccesskit_winit-18621ee73536d5b4.rlib: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\mod.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\windows.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\accesskit_winit-18621ee73536d5b4.d: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\mod.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\windows.rs
+
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\lib.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\mod.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\accesskit_winit-0.17.0\src\platform_impl\windows.rs:

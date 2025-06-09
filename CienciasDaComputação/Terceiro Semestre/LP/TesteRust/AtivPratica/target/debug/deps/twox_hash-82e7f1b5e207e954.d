@@ -1,0 +1,10 @@
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libtwox_hash-82e7f1b5e207e954.rmeta: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\sixty_four.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\thirty_two.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\xxh3.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libtwox_hash-82e7f1b5e207e954.rlib: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\sixty_four.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\thirty_two.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\xxh3.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\twox_hash-82e7f1b5e207e954.d: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\sixty_four.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\thirty_two.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\xxh3.rs
+
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\lib.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\sixty_four.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\thirty_two.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\twox-hash-1.6.3\src\xxh3.rs:

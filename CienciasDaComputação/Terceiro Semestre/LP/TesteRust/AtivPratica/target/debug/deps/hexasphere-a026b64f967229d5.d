@@ -1,0 +1,10 @@
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libhexasphere-a026b64f967229d5.rmeta: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\interpolation.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\shapes.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\slice.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\libhexasphere-a026b64f967229d5.rlib: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\interpolation.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\shapes.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\slice.rs
+
+D:\Ciencias_da_computaçao\PUCMG\CienciasDaComputação\Terceiro Semestre\LP\TesteRust\AtivPratica\target\debug\deps\hexasphere-a026b64f967229d5.d: C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\lib.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\interpolation.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\shapes.rs C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\slice.rs
+
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\lib.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\interpolation.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\shapes.rs:
+C:\Users\cauac\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\hexasphere-10.0.0\src\slice.rs:
