@@ -1,0 +1,1 @@
+for<'a, 'b, 'c, 'd, 'e, 'f> fn(bevy::prelude::Commands<'a, 'b>, bevy::prelude::Res<'c, bevy::prelude::AssetServer>, bevy::prelude::Res<'d, ButtonInput<KeyCode>>, {type error}, bevy::prelude::Query<'e, 'f, bevy::prelude::Entity, bevy::prelude::With<TextoUI>>) {menu_input}
