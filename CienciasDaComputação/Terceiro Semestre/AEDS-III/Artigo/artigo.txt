@@ -1,0 +1,41 @@
+/**
+855926 - Cauã Costa Alves
+**/
+
+1. Lossless Compression based Kmp Technique
+
+2. O problema identificado pelos autores é o alto uso de memória necessário para a compressão de imagens, 
+o que representa uma limitação importante para armazenamento e transmissão, especialmente em aplicações 
+que lidam com grandes volumes de dados. Embora existam diversos métodos de compressão já disponíveis, os 
+autores observam que ainda há espaço para uma técnica que seja mais eficiente, simples e que atenda melhor 
+às necessidades dos usuários. Por isso, propõem o uso de uma abordagem de compressão lossless baseada na 
+técnica KMP, conhecida por sua implementação simples e por exigir menos memória, oferecendo uma alternativa 
+promissora para reduzir o tamanho de imagens sem perda de qualidade.
+
+3. Os autores desenvolveram e testaram uma técnica de compressão de imagens baseada no algoritmo KMP, aplicada 
+de forma lossless. O método explora a repetição de pixels em diferentes direções — horizontal, vertical e 
+diagonal — para reduzir a quantidade de dados necessários para representar uma imagem, sem perda de qualidade. 
+A técnica mostrou-se eficaz em cenários com alta redundância de cores, como imagens com fundos uniformes ou padrões repetitivos.
+
+Os resultados indicam que, em média, a compressão alcançou cerca de 55% de redução no tamanho das imagens analisadas. 
+Em imagens com pouca variação de cor, a redução chegou a 70%, enquanto imagens com menor redundância tiveram compressões 
+menores, por volta de 15%. A técnica mostrou ser simples de implementar, eficiente em termos de memória e com bons resultados 
+em uma ampla gama de imagens.
+
+Alguns exemplos dos autores:
+Tamanho da imagem                                          Tamanho apos compressão    Porcentagem reduzida
+20Kb(Muita redundancia e distancia de 16 pixels)                    8Kb                     60
+20Kb(Muita redundancia e sem distancia de 16 pixels)                12Kb                    40
+20Kb(Pouca redundancia)                                             17Kb                    15
+
+4. A técnica de compressão de imagens baseada no algoritmo KMP (Knuth-Morris-Pratt) demonstrou alta eficiência na detecção e 
+compressão de padrões repetitivos em diversas direções (horizontal, vertical e diagonal), destacando-se pela rapidez de execução 
+tanto na compressão quanto na descompressão. Embora tenha uma limitação ao comprimir apenas pixels repetidos dentro de um raio de 
+16 posições, isso foi suficiente para mais de 99% dos casos testados, tornando o método altamente eficaz, especialmente para imagens 
+pequenas. Para imagens maiores ou de alta resolução, os autores sugerem dividi-las em blocos menores para manter a eficiência.
+
+Os resultados experimentais mostraram que essa técnica gera imagens reconstruídas com qualidade superior em comparação a outros métodos,
+mesmo utilizando taxas de bits semelhantes. Além disso, o KMP pode contribuir para a redução do espaço de armazenamento, aumento da 
+taxa de transmissão de dados e maior segurança da informação ao eliminar bits menos relevantes. Apesar dos avanços, os autores 
+reconhecem que a compressão de imagens ainda representa um desafio, especialmente com o uso de informações auxiliares, e destacam que 
+melhorias na técnica continuam em desenvolvimento.
