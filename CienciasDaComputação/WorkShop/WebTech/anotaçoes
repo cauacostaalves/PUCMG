@@ -1,0 +1,19 @@
+Pedro soares - BlockChain
+
+O que é uma blockChain?
+Sistema que armazena informaçoes de uma maneira que é dificil ou impossivel de se alterar/enganar
+Registro/livro de contas duplicados(descentralizados)
+
+Ledger(Livro razão)
+Armazena balanço/transaçoes de todas contas
+-descentralizado
+-imutavel
+-publico
+-cronologico
+Risco = de ser centralizado(Se perder ja era, so um arquvo)
+
+Wallets
+-Private key (Numero gerado aleatoriamente)
+-Public key 
+-address (Hash da public - endereço)
+ 
