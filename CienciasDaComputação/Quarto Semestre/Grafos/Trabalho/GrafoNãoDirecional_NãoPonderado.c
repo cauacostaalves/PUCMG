@@ -110,28 +110,8 @@ void DFS(int v, int tam, int **matriz) {
         visitados[cont] = i;
       }
     }
-  }  
-}
-
-
-void DFSRecursivo(int v, int tam, int **matriz, int *visitados) {
-    visitados[v] = 1;
+  }
     
-    for (int i = 0; i < tam; i++) {
-        if (matriz[v][i] == 1 && visitados[i] == 0) {
-            printf("%c ", v + 65);
-            DFSRecursivo(i, tam, matriz, visitados);            
-        }
-    }
-}
-
-void DFSRec(int v, int tam, int **matriz) {
-    int visitados[tam];
-    for (int i = 0; i < tam; i++) {
-        visitados[i] = 0;
-    }
-
-    DFSRecursivo(v, tam, matriz, visitados);
 }
 
 int main() {
@@ -167,10 +147,10 @@ int main() {
     printarGrafo(matriz, tam);
     
     char vertice;
-    printf("Vamos fazer o DFS Recursivo agora, digite a partir de qual vertice voce quer sair: ");
+    printf("Vamos fazer o DFS agora, digite a partir de qual vertice voce quer sair: ");
     scanf(" %c", &vertice);
 
-    DFSRec(vertice - 65,tam,matriz);
+    DFS(vertice-65, tam, matriz);
 
   
     return 0;
