@@ -114,6 +114,16 @@ void DFS(int v, int tam, int **matriz) {
     
 }
 
+void DFS_recursiva(int v, int tam, int **matriz, int visitados[]) {
+    visitados[v] = 1;
+    printf("%c ", v + 65);
+    for (int i = 0; i < tam; i++) {
+        if (matriz[v][i] == 1 && !visitados[i]) {
+            DFS_recursiva(i, tam, matriz, visitados);
+        }
+    }
+}
+
 int main() {
     int tam;
     printf("Digite a quantidade de vertices do seu grafo: ");
@@ -131,7 +141,6 @@ int main() {
             matriz[i][j] = 0;
         }
     }
-
     
     int qntdArestas;
     printf("Digite a quantidade de arestas: ");
@@ -150,8 +159,21 @@ int main() {
     printf("Vamos fazer o DFS agora, digite a partir de qual vertice voce quer sair: ");
     scanf(" %c", &vertice);
 
-    DFS(vertice-65, tam, matriz);
+    int *visitados = calloc(tam, sizeof(int));
 
-  
+    // 1) visita o componente do vértice escolhido
+    int start = (vertice >= 'a' && vertice <= 'z') ? vertice - 'a' : vertice - 'A';
+    DFS_recursiva(start, tam, matriz, visitados);
+    
+    // 2) cobre componentes restantes (grafo desconexo)
+    for (int i = 0; i < tam; i++) {
+        if (!visitados[i]) DFS_recursiva(i, tam, matriz, visitados);
+    }
+    printf("\n");
+    free(visitados);
+    
+
+    free(visitados);
+
     return 0;
 }
