@@ -1,25 +1,26 @@
 #include <iostream>
-#include <vector>
+#include "libs/GrafoMatriz.hpp"
+
 using namespace std;
 
 int main() {
-    int n = 3; // tamanho da matriz
-    vector<vector<int>> grafo(n, vector<int>(n, 0)); 
-    // cria uma matriz n x n preenchida com 0
-
-    // adiciona arestas (grafo não direcionado só pra exemplo)
-    grafo[0][1] = 1;
-    grafo[1][0] = 1;
-    grafo[1][2] = 1;
-    grafo[2][1] = 1;
-
-    // imprime a matriz
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << grafo[i][j] << " ";
-        }
-        cout << endl;
+    int vert;
+    cout << "Escreva o numero de vertices do grafo: " << endl;
+    cin >> vert;
+    while(vert <= 0){
+        cout << "Numero invalido (Requisitos: Inteiro > 0)" << endl;
+        cin >> vert;
     }
+    
+    bool **grafo = new bool *[vert];
 
+    IniciarGrafo(grafo, vert);
+    ImprimirGrafo(grafo, vert);
+
+    CriarArestas(grafo, vert);
+    ImprimirGrafo(grafo, vert);
+
+    DFS(grafo, vert);
+    
     return 0;
 }
