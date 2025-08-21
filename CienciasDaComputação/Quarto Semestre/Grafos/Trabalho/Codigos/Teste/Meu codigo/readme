@@ -1,0 +1,2 @@
+Como compilar:
+g++ GrafoMain.cpp (Get-ChildItem -Recurse libs -Filter *.cpp).FullName -o grafo

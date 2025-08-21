@@ -1,25 +1,28 @@
 #include <iostream>
-#include "GrafoMatriz.hpp"
+#include "GrafoNaoDirecionadoPonderado.hpp"
 using namespace std;
 
-void IniciarGrafo(bool **grafo, int vert){
+void IniciarGrafo_NDP(Vertice **grafo, int vert){
     for(int i=0;i<vert;i++){
-        grafo[i] = new bool[vert];
+        grafo[i] = new Vertice[vert];
         for(int j=0;j<vert;j++){
-            grafo[i][j] = false;
+            grafo[i][j].visitado = false;
+            grafo[i][j].peso = 0;
+            grafo[i][j].aresta = false;
         }
     }
 }
 
-void CriarArestas(bool **grafo, int vert){
-    cout << "Digite os dois vertices que vao ser conectados (Digite 0 0 para sair)." << endl;
+void CriarArestas_NDP(Vertice **grafo, int vert){
+    cout << "Digite os dois vertices que vao ser conectados e o seu peso (Digite 0 0 0 para sair)." << endl;
     char v1,v2;
+    int peso;
     int maxvert = (vert*(vert-1))/2;
     while (maxvert > 0)
     {
-        cin >> v1 >> v2;
+        cin >> v1 >> v2 >> peso;
 
-        if (v1 == '0' && v2 == '0')
+        if (v1 == '0' && v2 == '0' && peso == 0)
         {
             break;
         }
@@ -39,29 +42,25 @@ void CriarArestas(bool **grafo, int vert){
         int i = v1 - 'A';
         int j = v2 - 'A';
 
-        grafo[i][j] = true;
-        grafo[j][i] = true; 
+        grafo[i][j].aresta = true;
+        grafo[j][i].aresta = true; 
+        grafo[i][j].peso = peso;
+        grafo[j][i].peso = peso;
         maxvert -= 1;
     }
 }
 
-void DFS(bool **grafo,int vert){
+void DFS_NDP(Vertice **grafo,int vert){
     cout << "Digite o vertices que deseja começar: " << endl;
     char vertice;
     cin >> vertice;
-
-    for(){
-        for(){
-
-        }
-    }
 }
 
-void ImprimirGrafo(bool **grafo, int vert){
+void ImprimirGrafo_NDP(Vertice **grafo, int vert){
     char letra = 'A';   
     cout << "  ";
     for (int i = 0; i < vert; i++) {
-        cout << letra << " ";
+        cout << letra << "      ";
         letra += 1;     
     }
     cout << endl;
@@ -69,7 +68,7 @@ void ImprimirGrafo(bool **grafo, int vert){
     for(int i=0;i<vert;i++){
         cout << letra << " ";
         for(int j=0;j<vert;j++){
-            cout << grafo[i][j] << " ";
+            cout << grafo[i][j].aresta << " P:" << grafo[i][j].peso << "| ";
         }
         cout << endl;
         letra += 1;
