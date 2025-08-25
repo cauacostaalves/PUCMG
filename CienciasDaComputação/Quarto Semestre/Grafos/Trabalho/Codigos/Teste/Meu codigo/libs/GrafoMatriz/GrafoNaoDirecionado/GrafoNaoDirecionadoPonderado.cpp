@@ -2,9 +2,9 @@
 #include "GrafoNaoDirecionadoPonderado.hpp"
 using namespace std;
 
-void IniciarGrafo_NDP(Vertice **grafo, int vert){
+void IniciarGrafo_NDP(Vertice_NDP **grafo, int vert){
     for(int i=0;i<vert;i++){
-        grafo[i] = new Vertice[vert];
+        grafo[i] = new Vertice_NDP[vert];
         for(int j=0;j<vert;j++){
             grafo[i][j].visitado = false;
             grafo[i][j].peso = 0;
@@ -13,8 +13,8 @@ void IniciarGrafo_NDP(Vertice **grafo, int vert){
     }
 }
 
-void CriarArestas_NDP(Vertice **grafo, int vert){
-    cout << "Digite os dois vertices que vao ser conectados e o seu peso (Digite 0 0 0 para sair)." << endl;
+void CriarArestas_NDP(Vertice_NDP **grafo, int vert){
+    cout << "Digite os dois Vertice_NDPs que vao ser conectados e o seu peso (Digite 0 0 0 para sair)." << endl;
     char v1,v2;
     int peso;
     int maxvert = (vert*(vert-1))/2;
@@ -35,7 +35,7 @@ void CriarArestas_NDP(Vertice **grafo, int vert){
 
         if (v1 < 'A' || v1 >= 'A' + vert || v2 < 'A' || v2 >= 'A' + vert)
         {
-            cout << "Vertices invalidas! Por favor escreva arestas entre A e " << char('A' + vert - 1) << endl;
+            cout << "Vertice_NDPs invalidas! Por favor escreva arestas entre A e " << char('A' + vert - 1) << endl;
             continue;
         }
 
@@ -50,13 +50,13 @@ void CriarArestas_NDP(Vertice **grafo, int vert){
     }
 }
 
-void DFS_NDP(Vertice **grafo,int vert){
-    cout << "Digite o vertices que deseja começar: " << endl;
-    char vertice;
-    cin >> vertice;
+void DFS_NDP(Vertice_NDP **grafo,int vert){
+    cout << "Digite o Vertice_NDPs que deseja começar: " << endl;
+    char Vertice_NDP;
+    cin >> Vertice_NDP;
 }
 
-void ImprimirGrafo_NDP(Vertice **grafo, int vert){
+void ImprimirGrafo_NDP(Vertice_NDP **grafo, int vert){
     char letra = 'A';   
     cout << "  ";
     for (int i = 0; i < vert; i++) {

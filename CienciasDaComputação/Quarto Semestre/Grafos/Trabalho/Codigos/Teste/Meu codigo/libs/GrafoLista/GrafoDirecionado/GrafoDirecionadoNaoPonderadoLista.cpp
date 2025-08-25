@@ -1,17 +1,12 @@
 #include <iostream>
-#include "GrafoDirecionadoNaoPonderado.hpp"
+#include "GrafoNaoDirecionadoNaoPonderado.hpp"
 using namespace std;
 
-void IniciarGrafo_DNP(bool **grafo, int vert){
-    for(int i=0;i<vert;i++){
-        grafo[i] = new bool[vert];
-        for(int j=0;j<vert;j++){
-            grafo[i][j] = false;
-        }
-    }
+void IniciarGrafo_NDNP(bool **grafo, int vert){
+    vector<vector<bool>>;
 }
 
-void CriarArestas_DNP(bool **grafo, int vert){
+void CriarArestas_NDNP(bool **grafo, int vert){
     cout << "Digite os dois vertices que vao ser conectados (Digite 0 0 para sair)." << endl;
     char v1,v2;
     int maxvert = (vert*(vert-1))/2;
@@ -40,17 +35,18 @@ void CriarArestas_DNP(bool **grafo, int vert){
         int j = v2 - 'A';
 
         grafo[i][j] = true;
+        grafo[j][i] = true; 
         maxvert -= 1;
     }
 }
 
-void DFS_DNP(bool **grafo,int vert){
+void DFS_NDNP(bool **grafo,int vert){
     cout << "Digite o vertices que deseja começar: " << endl;
     char vertice;
     cin >> vertice;
 }
 
-void ImprimirGrafo_DNP(bool **grafo, int vert){
+void ImprimirGrafo_NDNP(bool **grafo, int vert){
     char letra = 'A';   
     cout << "  ";
     for (int i = 0; i < vert; i++) {

@@ -63,6 +63,7 @@
         "memory_resource": "cpp",
         "numeric": "cpp",
         "random": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "readme": "cpp"
     }
 }
