@@ -1,5 +1,7 @@
 #include <iostream>
 #include "GrafoDirecionadoNaoPonderado.hpp"
+#include "Pilha.hpp";
+
 using namespace std;
 
 void IniciarGrafo_DNP(bool **grafo, int vert){
@@ -44,10 +46,16 @@ void CriarArestas_DNP(bool **grafo, int vert){
     }
 }
 
-void DFS_DNP(bool **grafo,int vert){
+void DFS_DNP(bool **grafo){
     cout << "Digite o vertices que deseja começar: " << endl;
     char vertice;
     cin >> vertice;
+    int vert = vertice - 'A';
+    Pilha* p;
+    IniciarPilha(p);
+
+    
+
 }
 
 void ImprimirGrafo_DNP(bool **grafo, int vert){

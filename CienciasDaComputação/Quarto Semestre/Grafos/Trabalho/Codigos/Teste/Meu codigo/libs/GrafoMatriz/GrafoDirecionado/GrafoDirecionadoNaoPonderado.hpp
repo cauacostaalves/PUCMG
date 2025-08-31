@@ -39,7 +39,7 @@ void ImprimirGrafo_DNP(bool **grafo,int vert);
 *   @return sequencia que achou as vertice
 *
 */
-void DFS_DNP(bool **grafo,int vert);
+void DFS_DNP(bool **grafo);
 
 
 #endif // GRAFODIRECIONADONAOPONDERADO_HPP
