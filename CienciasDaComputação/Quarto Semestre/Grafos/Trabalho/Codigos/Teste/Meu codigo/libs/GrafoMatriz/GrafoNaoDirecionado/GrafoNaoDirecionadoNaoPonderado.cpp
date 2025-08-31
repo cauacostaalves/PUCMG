@@ -49,6 +49,12 @@ void DFS_NDNP(bool **grafo,int vert){
     cout << "Digite o vertices que deseja começar: " << endl;
     char vertice;
     cin >> vertice;
+    int vert = vertice - 'A';
+    Pilha* p;
+    IniciarPilha(p);
+
+    for(){
+    }
 }
 
 void ImprimirGrafo_NDNP(bool **grafo, int vert){
