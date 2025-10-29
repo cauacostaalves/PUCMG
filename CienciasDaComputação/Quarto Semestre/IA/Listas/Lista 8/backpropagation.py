@@ -81,4 +81,5 @@ A1_ruido = sigmoid(Z1_ruido)
 Z2_ruido = np.dot(A1_ruido, W2) + B2
 yHat_ruido = sigmoid(Z2_ruido)
 
+
 print("Saída com ruído:", yHat_ruido)
