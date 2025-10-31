@@ -1,0 +1,20 @@
+Teoria, algoritmo e conceitos:
+Prim - Achar o menor caminho, ele começa por um vertice especifico e vai colocando a aresta de menor peso 
+Kruskal - Achar o menor caminho, ele vai colocando as aresta de menor peso
+Remoçao Reversa - Acha o menor caminho, ele vai tirando as arestas de maior peso que não são ponte
+Arvore geradora e AG max e AG min - Arvore gerado é quando o grafo é conexo e tem o numero de aresta = o numero de vertice - 1,
+Ou seja, não tem ciclo e é uma arvore, o max é quando para formar esse caminho se pega o maior peso e minimo o menor
+Hamiltoniano - Quando um grafo tem um unico caminho que passa por todos os vertices e volta no primeiro sem repetir vertices,
+Se G tem ponto de articulação então não é hamiltoniano -> Verdadeiro
+Se G não tem ponto de articulação então é hamiltoniano -> Falso
+Euleriano - Quando um grafo tem um unico caminho que passa por todas arestas sem repetir aresta e volta,
+para isso tem que ter um ciclo e todos graus de todos vertices sao par
+Isomorfismo - Mesmo n de vertice, arestas, sequencia de graus e componentes conexos, Ainda assim pode nao ser polinomio,
+para ter certeza temos que fazer um mapeamento de vertices e arestas , qual a função desse mapeamento?
+Igualdade de grafos - um grafo é igual quando se tem o msm numero de vertice e arestas e componentes conexos
+
+Problemas:
+Maior caminho em grafo ponderado
+Memnor Caminho em grafo ponderado - dijkstra e bellmanfort
+dijkstra so quando nao tem negativo, se for tudo negativo e não tiver ciclo de negativo tambem funciona
+bellmanfort pode tudo desde que nao tenha ciclo negativo
