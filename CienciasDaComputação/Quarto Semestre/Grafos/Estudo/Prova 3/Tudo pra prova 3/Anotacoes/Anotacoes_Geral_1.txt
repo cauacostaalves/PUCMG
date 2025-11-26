@@ -1,0 +1,293 @@
+------------------------------------------------- Coloração -------------------------------------------------
+Conjunto dominante:
+ É o conjunto de vertices do grafo em que se alcançam todos os vértices
+
+Conjunto Idependente:
+
+ É o conjunto de vertices onde o seu subgrafo é um grafo nulo.
+
+	- Selecionar v de menor grau possivel
+	- remover os adj de v
+	- repetir ate todos os vertices que vão sobrando serem visitados
+ 
+
+Cobertura de Vértice:
+
+ É o conjunto de vertices do grafo que cobrem todas as arestas.
+	- Selecionar v de menor grau possivel
+	- remover os adj de v
+	- repetir ate todos os vertices que vão sobrando serem visitados
+	- ao terminar teremos nosso conjunto idependente
+	- fazer conjunto de vertice -conjunto idependente e termos nossa cobertura de vertices
+
+Clique:
+
+ É o subgrafo induzido do grafo original em que está completo.
+
+
+--------------------------------------- Conectividade em Grafos ---------------------------------------------
+
+Não conexo - Nem todo par de vertices é unido por uma cadeia. (cadeia = sequencia de vertices e arestas)
+
+Conexo - Se o grafo ASSOCIADO for conexo o grafo é conexo e se divide em 3.
+
+	 1. Fortemente conexo- O fecho transitivo de QUALQUER VERTICE é igual ao conjunto total de vertices;
+
+	 2. Semi Fortemente Conexo- Em um G(V,E), u estara no fecho transitivo de v, porem v não estara no 
+				    fecho transitivo de u;
+
+	 3. Fracamente- Em um G(V,E), existe um par de vertices que não se atingem, nem de v para u 
+		        quanto de u para v; 
+
+
+--------------------------------------- Subgrafo e Subgrafo-Induzido ----------------------------------------
+
+ Um SUBGAFO é formado selecionando um subconjunto de vértices e arestas do grafo original e removendo
+ quaisquer vértices ou arestas que não fazem parte do subconjunto.
+
+ Um SUBGAFO INDUZIDO, por outro lado, é um subgrafo que é formado a partir da seleção de um subconjunto
+ de vértices e todas as arestas que conectam esses vértices.
+
+
+--------------------------------------- Arvores Geradoras ---------------------------------------------------
+
+ É um subgrafo do Grafo Original, onde se mantém os vertices ( são o mesmo do conjundo original) 
+ e seja conexa e aciclica.
+
+--------------------------------------- Arvores de Stainer --------------------------------------------------
+
+ É uma arvore geradora onde está respeitando alguma regra imposta a ela ( T'= (v',e') ).
+
+------------------------------------ Arvores Geradoras Mínimas ----------------------------------------------
+
+Prim:
+(Questão prova: a aresta que for desejada, colocaremos com o menor valor negativo do grafo)
+1- Começar de um vértice qualquer;
+2- Escolher a aresta com menor peso que liga ao vizinho do seu vertice inicial;
+3- Escolher em seguida a menor aresta conectada ao seu conjuto de vertices ja visitados, com a condição 
+   de enquanto houver vertices não visitados e de maneira a não fechar ciclos;
+
+Kruskal:
+1- Ordenar as arestas de forma não decrescente em uma fila F.
+2- Cria um subgrafo do grafo original, de forma que este subgrafo seja nulo
+3- Selecionar e inserir as arestas previamente ordenadas e depois retirando-as da fila com a condição de 
+   que não formem ciclos, fundindo 2 arvores distintas. Caso v feche ciclo, sera removido de F e não adicionado 
+   no subgrafo.
+4- Por fim, este subgrafo será a arvore geradora mínima.
+
+Kruskal inverso (reverse delete):
+1- Ordenar as arestas de forma não crescente em uma fila F. 
+3- Deletar as arestas na ordem previamente selecionada de forma a não aumentar 
+   o número de componentes. Caso v seja removido para verificação e aumente o numero de componentes,
+   devemos apenas remover E de F, mas manter a aresta no grafo.
+
+
+----------------------------------------- Fluxo Máximo ------------------------------------------------------
+
+( Só funciona pra direcionados )
+
+Ford Fulkerson (Marcola):
+1-   Colocar o fluxo maximo igual a zero
+2-   Enquanto o grafo residual possuir caminho de aumento: 
+2.1- Encontrar um caminho de aumento P
+2.2- Selecionar aresta v de P com menor capacidade
+2.3- Somar o peso da aresta v no fluxo máximo
+2.4- Atualizar o Grafo residual.
+
+Ford Fulkerson (Prof):
+1-   Zerar os fluxos
+2-   Enquanto ouver cominho entre S e T: 
+2.1- Encontrar um caminho de aumento no grafo residual entre S e T
+2.2- Atualizar o fluxo considerado caminho do aumento.
+
+----------------------------------------- Grafo Isomorfo -----------------------------------------------------
+
+Para um grafo H ser isomorfo de um grafo G, ele precisa ter a mesma quantidade de vértice, mesma 
+quantidade de aresta, grau total devem ser o mesmo, a sequencia dos graus também devem ser o mesmo
+e deve possuir correspondencia de vértices e arestas.
+
+---------------------------------------- Caminhos mínimos ----------------------------------------------------
+
+Busca em profundidade (Atingibilidade):
+1- Crie uma pilha e coloque o vertice inicial na pilha.
+2- Inicialize um conjunto vazio para armazenar os vertices já visitados.
+3- Enquanto a pilha não estiver vazia:
+  4- Remova o vertice do topo da pilha e armazene em uma variável.
+  5- Se o vertice ainda não foi visitado:
+    6- Marque o vertice como visitado e faça o processamento desejado.
+    7- Adicione todos os vizinhos não visitados do vertice na pilha.
+8- Se todos os vertices alcançáveis a partir do vertice inicial foram visitados, a busca terminou.
+   Caso contrário, escolha um vertice não visitado e repita os passos 3 e 4.
+
+Busca Largura (Distancia):
+(prova: fazer para todos os vertices do grafo)
+1- Escolher o vertice inicial como V (e settar contador = 0);
+2- Colocar V em um conjunto de visitados E;
+3- Adicionar em uma fila e os vizinhos de V que não estão em E;
+(prova: 3.1- Quando acessar o vertice, receber valor contador = antecessor +1;)
+4- Caso a fila esteja vazia, o conjunto E será a ordem de visita;
+5- Pegar da fila o proximo vertice V;
+6- Repetir do passo 2;
+(7- Ao terminar de fazer para todos os vertices, o maior valor do contador feito em todas as buscas será o diametro).
+
+Largura:
+0- Tendo um vertice inicial e um vertice final;
+1- Escolher o vertice inicial como V;
+2- Colocar V em um conjunto de visitados E;
+3- Adicionar em uma fila e os vizinhos de V que não estão em E;
+4- Marcar nos vizinhos de V, que V é predecessor;
+5- Caso a fila esteja vazia, não existe caminho;
+6- Pegar da fila o proximo vertice V;
+7- Caso V não seja o vertice final repetir do passo 2;
+8- Siga os predecessores de E montando uma lista ordenada L;
+9- L ao contrário será o menor caminho.
+
+Dijaikstra:
+1- Escolher o vertice inicial como V; 
+2- Criar uma lista D marcando todos os valores como infinito;
+3- Marcar na lista D o valor de V como 0;
+4- Marcar o vertice V como visitado;
+5- Atualizar os valores dos vizinhos de V na lista D, para que 
+   permaneça o menor valor entre o valor atual e o valor que levou ate chegar em V;
+6- Marcar em quem foi atualizado que V será o predecessor;
+7- Caso ainda exista vertices não vizitados escolha entre eles o que tem menor valor em D como V;
+8- Se não for o vertice final, repitado passo 4.
+9- Siga os predecessores de E montando uma lista ordenada L;
+10- L ao contrário será o menor caminho.
+
+Belmond Ford (Ferraz):
+
+1- infinito em tudo
+2- verificar os adjascentes diferentes de infinito
+3- faça enquanto as duas ultimas iterações não forém iguais
+
+Belmond Ford (Rafael):
+FTO NO GRP
+
+
+---------------------------------------- Caminhos Euleriano --------------------------------------------------
+
+1- Contar o grau de entrada de cada vertice;
+2- Caso tenha no grafo mais de dois vertices de grau impar, não há caminho euleriano, pois para ter caminho 
+euleriano ou todos ou vertices tem o grau de entrada pares ou tem no max 2 impares;
+3- Caso seja o caso de termos 2 de grau ímpar, o caminho euleriano deverá começar em um destes vértices e deverá 
+terminar no outro;
+4- Caso seja o caso de termos todos de grau par, o caminho euleriano deverá começar em qualquer vertice;
+5- Depois de escolhermos o vértice inicial, enquanto houver arestas não visitadas no caminho, escolhemos a 
+aresta não visitada e caminharemos por ela e adicionamos em nosso caminho atual (dando prioridade de escolha as 
+arestas que não são pontes). Logo em seguida, removeremos a aresta caminhada do nosso grafo;
+6- Quando não houver mais arestas não visitadas no nosso caminho atual, apenas retornaremos ao nosso último 
+vertice que tinha arestas não visitadas e damos continuidade para o nosso processo;
+7- No final desse caminhamento nos teremos nosso caminho euleriano.
+
+
+---------------------------------------- Caminhos Crescente --------------------------------------------------
+
+
+
+
+---------------------------------------- Caminhos Crítico ----------------------------------------------------
+
+1- Remover vertice de grau de entrada 0;
+2- Adicionar v removido ao grupo do caminho;
+3- O sucessor deve carregar a informação do antecessor;
+4- Repete do passo 1 até todo grafo ser removido;
+5- O conjunto com o maior conjunto de vertices é o caminho crítico;
+
+----------------------------------------- Wildest path ----------------------------------------------------
+Wildest path:
+
+A primeira coisa a se fazer é começar settando o valor do vertice inicial como infinito e dos outros como -infinito
+
+Fazer enquanto ouver caminho{
+	ao verificar os adjacentes ao vertice selecionado, fazer a comparação MAX( MIN (v, ARESTA), VALOR DO ADJ)
+	}
+
+Retornar o valor do vertice final
+----------------------------------------- Verificar Bases ----------------------------------------------------
+
+1- Percorrer utilizando uma busca por profundidade para achar os graus de entrada de cada vertice;
+2- Os vertices com grau de entrada cm o valor 0 serão a base.
+obs: se o grafo for ciclico, todos os vertices serão a base.
+
+---------------------------------------- Feixo Transitivo Direto ---------------------------------------------
+
+
+-------------------------------------- Componentes fortemente conexos ----------------------------------------
+
+1- Será feita uma busca em profundidade, colocando os tempos de visitação de cada vertice;
+2- Fazer um grafo transposto ao grafo original (troca de direção);
+3- No grafo transposto, caminhar utilizando a busca por profundidade seguindo a ordem decrescente dos tempos de 
+visitas que foi definida na primeira busca por profundidade. Durante esse caminhamento, verifica se há adjascentes,
+cada vez que acabar os adjascentes, se forma um componente fortemente conexo;
+
+----------------------------------------- Verificar Anti-Bases -----------------------------------------------
+
+1- Fazer o transposto do grafo original;
+2- Percorrer utilizando uma busca por profundidade para achar os graus de entrada de cada vertice;
+3- Os vertices com grau de entrada cm o valor 0 serão a anti-base.
+obs: se o grafo for ciclico, todos os vertices serão a anti-base.
+
+----------------------------------------------- Grafo conexo -------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------
+
+formulas:
+n = numero de vertices
+E = numero de arestas
+////////////////////////////////
+///////////////////////////////
+
+n-c minimo de arestas para c componentes
+------------------------
+(n-c) . (n-c+1)/2 maximo de arestas com c componentes
+------------------------
+(n-c) . (n-c-1)/2 numero maximo de arestas do grafo
+-----------------------------
+completo bipartido nv1 . nv2
+
+------------------------
+
+n
+somatorio (n i) . 2 i(i-1)/2
+i=1
+--------------------------------
+
+E.2  somar todos graus do grafo 
+------------------------------------
+(n-c) . (n-c+1)/2 numero maximo de um grafo complementar
+--------------------------------------------
+(2^n)-1 quantos sub-conjuntos tem
+-------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
