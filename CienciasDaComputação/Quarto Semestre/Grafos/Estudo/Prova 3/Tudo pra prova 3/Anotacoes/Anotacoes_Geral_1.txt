@@ -25,7 +25,7 @@ Clique:
  É o subgrafo induzido do grafo original em que está completo.
 
 
---------------------------------------- Conectividade em Grafos ---------------------------------------------
+--------------------------------------- Conectividade em Grafos Direcionados --------------------------------
 
 Não conexo - Nem todo par de vertices é unido por uma cadeia. (cadeia = sequencia de vertices e arestas)
 
@@ -142,7 +142,7 @@ Largura:
 8- Siga os predecessores de E montando uma lista ordenada L;
 9- L ao contrário será o menor caminho.
 
-Dijaikstra:
+Dijkstra:
 1- Escolher o vertice inicial como V; 
 2- Criar uma lista D marcando todos os valores como infinito;
 3- Marcar na lista D o valor de V como 0;
@@ -227,9 +227,6 @@ cada vez que acabar os adjascentes, se forma um componente fortemente conexo;
 2- Percorrer utilizando uma busca por profundidade para achar os graus de entrada de cada vertice;
 3- Os vertices com grau de entrada cm o valor 0 serão a anti-base.
 obs: se o grafo for ciclico, todos os vertices serão a anti-base.
-
------------------------------------------------ Grafo conexo -------------------------------------------------
-
 
 --------------------------------------------------------------------------------------------------------------
 
