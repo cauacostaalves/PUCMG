@@ -1,0 +1,289 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Academia do Bairro",
+        "categoria": "academia",
+        "tipo": "musculação",
+        "bairro": "Pampulha",
+        "horario": "06-22",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9749329364679,
+          -19.887203377650017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Box de Cross",
+        "categoria": "academia",
+        "tipo": "crossfit",
+        "bairro": "Pampulha",
+        "horario": "06-21",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.971589418042804,
+          -19.88495759971254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Restaurante Self-Service",
+        "categoria": "restaurante",
+        "tipo": "self-service",
+        "bairro": "Pampulha",
+        "horario": "11-15",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.96729060863911,
+          -19.886305066475025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Café pra Estudar",
+        "categoria": "cafeteria",
+        "tipo": "café",
+        "bairro": "Pampulha",
+        "horario": "08-20",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.96681296314981,
+          -19.891245777937478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Biblioteca de Apoio",
+        "categoria": "biblioteca",
+        "tipo": "estudo",
+        "bairro": "Pampulha",
+        "horario": "09-18",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.971111772553506,
+          -19.89394071146245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Coworking de Bairro",
+        "categoria": "coworking",
+        "tipo": "trabalho",
+        "bairro": "Pampulha",
+        "horario": "08-22",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9754105819572,
+          -19.89483902263744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "RU (exemplo)",
+        "categoria": "ru",
+        "tipo": "refeição",
+        "bairro": "Pampulha",
+        "horario": "11-14",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.97970939136089,
+          -19.892144089112467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Ponto de Ônibus 1",
+        "categoria": "ponto_onibus",
+        "tipo": "mobilidade",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.977798809403694,
+          -19.883160977362557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Ponto de Ônibus 2",
+        "categoria": "ponto_onibus",
+        "tipo": "mobilidade",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9744552909786,
+          -19.88091519942508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Farmácia 24h",
+        "categoria": "farmacia",
+        "tipo": "24h",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.98209761880739,
+          -19.887652533237514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Área Verde",
+        "categoria": "lazer",
+        "tipo": "parque",
+        "bairro": "Pampulha",
+        "horario": "06-20",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.96920119059631,
+          -19.89708480057492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Centro Esportivo",
+        "categoria": "esporte",
+        "tipo": "quadras",
+        "bairro": "Pampulha",
+        "horario": "07-22",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.96538002668191,
+          -19.88271182177506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Rota (exemplo)",
+        "categoria": "ciclovia",
+        "tipo": "linha"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -43.9768435184251,
+            -19.895288178224938
+          ],
+          [
+            -43.97517175921255,
+            -19.892144089112467
+          ],
+          [
+            -43.9735,
+            -19.889
+          ],
+          [
+            -43.97182824078745,
+            -19.885855910887532
+          ],
+          [
+            -43.970156481574904,
+            -19.88271182177506
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Zona (exemplo)",
+        "categoria": "zona",
+        "tipo": "poligono"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -43.971111772553506,
+              -19.88675422206252
+            ],
+            [
+              -43.964902381192616,
+              -19.88675422206252
+            ],
+            [
+              -43.964902381192616,
+              -19.891245777937478
+            ],
+            [
+              -43.971111772553506,
+              -19.891245777937478
+            ],
+            [
+              -43.971111772553506,
+              -19.88675422206252
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

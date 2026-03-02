@@ -1,0 +1,293 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Academia Pampulha Fit",
+        "categoria": "academia",
+        "tipo": "musculação",
+        "bairro": "Pampulha",
+        "horario": "06-22",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.953410250479656,
+          -19.85925422206252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Cross Pampulha Box",
+        "categoria": "academia",
+        "tipo": "crossfit",
+        "bairro": "Pampulha",
+        "horario": "06-21",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.95293268785974,
+          -19.856110132950054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Restaurante Sabor da Lagoa",
+        "categoria": "restaurante",
+        "tipo": "self-service",
+        "bairro": "Pampulha",
+        "horario": "11-15",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.94863462428052,
+          -19.85745759971254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Café Estudos & Bytes",
+        "categoria": "cafeteria",
+        "tipo": "café",
+        "bairro": "Pampulha",
+        "horario": "08-20",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.94481412332122,
+          -19.859703377650018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Biblioteca Comunitária",
+        "categoria": "biblioteca",
+        "tipo": "estudo",
+        "bairro": "Pampulha",
+        "horario": "09-18",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.945291685941136,
+          -19.864644089112467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Cowork Pampulha",
+        "categoria": "coworking",
+        "tipo": "trabalho",
+        "bairro": "Pampulha",
+        "horario": "08-22",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.94958974952035,
+          -19.867788178224938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "RU Universitário (exemplo)",
+        "categoria": "ru",
+        "tipo": "refeição",
+        "bairro": "Pampulha",
+        "horario": "11-14",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.95293268785974,
+          -19.86958480057492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Ponto Ônibus Av. Pedro I",
+        "categoria": "ponto_onibus",
+        "tipo": "mobilidade",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.957230751438956,
+          -19.854313510600072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Ponto Ônibus BR-381",
+        "categoria": "ponto_onibus",
+        "tipo": "mobilidade",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.953410250479656,
+          -19.850720265900108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Farmácia 24h (exemplo)",
+        "categoria": "farmacia",
+        "tipo": "24h",
+        "bairro": "Pampulha",
+        "horario": "24h",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.96057368977835,
+          -19.860152533237514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Parque/Área Verde",
+        "categoria": "lazer",
+        "tipo": "parque",
+        "bairro": "Pampulha",
+        "horario": "06-20",
+        "wifi": "sim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.94720193642079,
+          -19.87227973409989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Centro Esportivo",
+        "categoria": "esporte",
+        "tipo": "quadras",
+        "bairro": "Pampulha",
+        "horario": "07-22",
+        "wifi": "nao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.94338143546148,
+          -19.852966043837586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Rota Ciclovia (exemplo)",
+        "categoria": "ciclovia",
+        "tipo": "linha"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -43.95665767629506,
+            -19.86958480057492
+          ],
+          [
+            -43.95436537571948,
+            -19.865991555874956
+          ],
+          [
+            -43.9520730751439,
+            -19.862398311174992
+          ],
+          [
+            -43.94978077456832,
+            -19.858805066475025
+          ],
+          [
+            -43.947488473992735,
+            -19.85521182177506
+          ],
+          [
+            -43.94519617341715,
+            -19.851618577075097
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Zona de Estudo (exemplo)",
+        "categoria": "zona",
+        "tipo": "poligono"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -43.94863462428052,
+              -19.857906755300036
+            ],
+            [
+              -43.94099362236192,
+              -19.857906755300036
+            ],
+            [
+              -43.94099362236192,
+              -19.864194933524974
+            ],
+            [
+              -43.94863462428052,
+              -19.864194933524974
+            ],
+            [
+              -43.94863462428052,
+              -19.857906755300036
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

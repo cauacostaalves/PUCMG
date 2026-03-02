@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "RU UFMG (exemplo)",
+        "categoria": "restaurante universitario"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.967,
+          -19.8696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Restaurante Centro (exemplo)",
+        "categoria": "restaurante"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9386,
+          -19.9191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Café Savassi (exemplo)",
+        "categoria": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9399,
+          -19.934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "Academia Funcionários (exemplo)",
+        "categoria": "academia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.9324,
+          -19.9315
+        ]
+      }
+    }
+  ]
+}
