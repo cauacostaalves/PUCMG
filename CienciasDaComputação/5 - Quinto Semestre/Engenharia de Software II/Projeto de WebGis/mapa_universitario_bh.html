@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa Universitário BH (protótipo)</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- KML -> GeoJSON -->
+  <script src="https://unpkg.com/togeojson@0.16.0/dist/togeojson.umd.js"></script>
+
+  <!-- Shapefile (.zip) -> GeoJSON -->
+  <script src="https://unpkg.com/shpjs@latest/dist/shp.min.js"></script>
+
+  <!-- Turf (filtros espaciais) -->
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1b32;
+      --text:#e7eefc;
+      --muted:#a8b7d6;
+      --line:#223252;
+      --btn:#1f3b78;
+      --btn2:#1b2e57;
+      --danger:#7a1f2a;
+      --ok:#1f7a4a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      height:100vh;
+      width:100vw;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(15,27,50,.98), rgba(11,18,32,.98));
+      border-right: 1px solid var(--line);
+      padding:16px;
+      overflow:auto;
+    }
+    .brand{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .dot{
+      width:12px;height:12px;border-radius:999px;background:#5eead4;
+      box-shadow: 0 0 0 4px rgba(94,234,212,.15);
+    }
+    h1{
+      font-size:16px;
+      margin:0;
+      line-height:1.2;
+      letter-spacing:.2px;
+    }
+    .sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      margin:12px 0;
+    }
+    .card h2{
+      font-size:13px;
+      margin:0 0 10px 0;
+      color: var(--text);
+      letter-spacing:.2px;
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin:8px 0 6px;
+    }
+    input[type="file"], input[type="text"], select{
+      width:100%;
+      padding:10px 10px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+    }
+    input[type="range"]{ width:100%; }
+    .row{
+      display:flex; gap:8px;
+    }
+    .row > *{ flex:1; }
+    .btn{
+      width:100%;
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background: var(--btn);
+      color: var(--text);
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .btn.secondary{ background: var(--btn2); border-color: var(--line); font-weight:600; }
+    .btn.danger{ background: var(--danger); }
+    .btn.ok{ background: var(--ok); }
+    .btn:disabled{ opacity:.55; cursor:not-allowed; }
+    .hint{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .layers{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:8px;
+    }
+    .layerItem{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px;
+      background: rgba(255,255,255,.03);
+    }
+    .layerLeft{
+      display:flex; gap:10px; align-items:center; min-width:0;
+    }
+    .layerName{
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 200px;
+    }
+    .pill{
+      font-size:11px;
+      padding:2px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.02);
+    }
+    .smallBtn{
+      padding:7px 10px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+      font-size:12px;
+    }
+    .status{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:8px;
+      line-height:1.35;
+      white-space:pre-line;
+    }
+    #map{
+      height:100vh;
+      width:100%;
+    }
+    .foot{
+      margin-top:10px;
+      font-size:11px;
+      color: var(--muted);
+      opacity:.9;
+    }
+    .kbd{
+      border:1px solid var(--line);
+      border-bottom-width:2px;
+      border-radius:8px;
+      padding:1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:11px;
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <aside class="panel">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <h1>Mapa Universitário BH</h1>
+          <div class="sub">protótipo SIG interativo • zoom/pan • camadas • filtros</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Objetivo (editável pela dupla)</h2>
+        <div class="hint">
+          A ideia aqui é simples: ajudar universitários em Belo Horizonte a achar recursos úteis perto deles (ex.: bibliotecas, coworkings, RU, pontos de ônibus, ciclovias, academias) e filtrar por distância/atributos.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Mapa base</h2>
+        <label>Escolha o mapa</label>
+        <select id="baseSelect">
+          <option value="osm">Ruas (OpenStreetMap)</option>
+          <option value="sat">Satélite (Esri World Imagery)</option>
+        </select>
+        <div class="hint">Zoom e pan já são nativos do mapa.</div>
+      </div>
+
+      <div class="card">
+        <h2>Carregar camadas</h2>
+        <label>Arquivos aceitos</label>
+        <div class="hint">
+          • GeoJSON: <span class="kbd">.geojson</span> / <span class="kbd">.json</span><br/>
+          • KML: <span class="kbd">.kml</span><br/>
+          • Shapefile: <span class="kbd">.zip</span> (zip com .shp/.shx/.dbf/.prj)
+        </div>
+        <label for="fileInput">Selecionar arquivo(s)</label>
+        <input id="fileInput" type="file" multiple />
+        <button class="btn secondary" id="btnLoad">Adicionar ao mapa</button>
+
+        <div class="layers" id="layersList"></div>
+
+        <div class="status" id="loadStatus">Nenhuma camada carregada.</div>
+      </div>
+
+      <div class="card">
+        <h2>Filtros (análise)</h2>
+
+        <label>Camada alvo</label>
+        <select id="layerSelect" disabled></select>
+
+        <div class="row">
+          <div>
+            <label>Raio (m)</label>
+            <input id="radius" type="range" min="100" max="3000" step="50" value="500" />
+            <div class="hint">Atual: <span id="radiusVal">500</span> m</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Campo (opcional)</label>
+            <input id="propKey" type="text" placeholder="ex.: nome, tipo, bairro" />
+          </div>
+          <div>
+            <label>Contém (opcional)</label>
+            <input id="propVal" type="text" placeholder="ex.: crossfit, 24h" />
+          </div>
+        </div>
+
+        <button class="btn ok" id="btnLocate">Usar minha localização</button>
+        <button class="btn" id="btnFilter" disabled>Aplicar filtro</button>
+        <button class="btn danger" id="btnClear" disabled>Limpar filtro</button>
+
+        <div class="status" id="filterStatus">Sem filtro ativo.</div>
+
+      </div>
+    </aside>
+
+    <main>
+      <div id="map"></div>
+    </main>
+  </div>
+
+<script>
+  // ---------- Utils ----------
+  function uid() { return Math.random().toString(16).slice(2) + Date.now().toString(16); }
+
+  function humanTypeFromExt(name){
+    const n = name.toLowerCase();
+    if (n.endsWith(".kml")) return "KML";
+    if (n.endsWith(".zip")) return "SHP(zip)";
+    if (n.endsWith(".geojson") || n.endsWith(".json")) return "GeoJSON";
+    return "Arquivo";
+  }
+
+  function safeLower(v){
+    if (v === null || v === undefined) return "";
+    return String(v).toLowerCase();
+  }
+
+  // ---------- Map ----------
+  const bh = [-19.9191, -43.9386];
+
+  const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 20,
+    attribution: '&copy; OpenStreetMap contributors'
+  });
+
+  const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 20,
+    attribution: "Tiles &copy; Esri"
+  });
+
+  const map = L.map("map", {
+    center: bh,
+    zoom: 13,
+    layers: [osm]
+  });
+
+  const baseLayers = { "OSM (ruas)": osm, "Satélite (Esri)": sat };
+  const overlays = {};
+  const layerControl = L.control.layers(baseLayers, overlays, { collapsed: true }).addTo(map);
+
+  // ---------- State ----------
+  // layersState[id] = { id, name, type, originalGeoJSON, originalLayer, activeLayer, isVisible, isFiltered, filteredLayer }
+  const layersState = {};
+  let userLoc = null; // {lat, lng}
+  let userMarker = null;
+  let userCircle = null;
+
+  // ---------- UI Elements ----------
+  const baseSelect = document.getElementById("baseSelect");
+  const fileInput = document.getElementById("fileInput");
+  const btnLoad = document.getElementById("btnLoad");
+  const layersList = document.getElementById("layersList");
+  const loadStatus = document.getElementById("loadStatus");
+
+  const layerSelect = document.getElementById("layerSelect");
+  const radius = document.getElementById("radius");
+  const radiusVal = document.getElementById("radiusVal");
+  const propKey = document.getElementById("propKey");
+  const propVal = document.getElementById("propVal");
+
+  const btnLocate = document.getElementById("btnLocate");
+  const btnFilter = document.getElementById("btnFilter");
+  const btnClear = document.getElementById("btnClear");
+  const filterStatus = document.getElementById("filterStatus");
+
+  // ---------- Base map switch ----------
+  baseSelect.addEventListener("change", () => {
+    const v = baseSelect.value;
+    if (v === "osm") { map.removeLayer(sat); map.addLayer(osm); }
+    if (v === "sat") { map.removeLayer(osm); map.addLayer(sat); }
+  });
+
+  // ---------- Radius UI ----------
+  radius.addEventListener("input", () => {
+    radiusVal.textContent = radius.value;
+    if (userLoc && userCircle){
+      userCircle.setRadius(Number(radius.value));
+    }
+  });
+
+  // ---------- Layer rendering ----------
+  function markerForPoint(feature, latlng){
+    // marcador simples (sem firula)
+    return L.circleMarker(latlng, { radius: 6, weight: 2, fillOpacity: 0.6 });
+  }
+
+  function popupForFeature(feature){
+    const props = feature.properties || {};
+    const keys = Object.keys(props);
+    if (!keys.length) return "<b>Feature</b><br/>Sem atributos.";
+    const rows = keys.slice(0, 20).map(k => `<div><b>${k}:</b> ${props[k]}</div>`).join("");
+    return `<b>Feature</b><hr style="border:0;border-top:1px solid #223252;margin:6px 0;"/>${rows}`;
+  }
+
+  function makeLeafletLayerFromGeoJSON(geojson){
+    const layer = L.geoJSON(geojson, {
+      pointToLayer: markerForPoint,
+      onEachFeature: (feature, lyr) => {
+        lyr.bindPopup(popupForFeature(feature));
+      }
+    });
+    return layer;
+  }
+
+  function addLayerToUI(state){
+    // list item
+    const item = document.createElement("div");
+    item.className = "layerItem";
+    item.dataset.layerId = state.id;
+
+    const left = document.createElement("div");
+    left.className = "layerLeft";
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = true;
+    cb.addEventListener("change", () => {
+      state.isVisible = cb.checked;
+      if (state.isVisible) map.addLayer(state.activeLayer);
+      else map.removeLayer(state.activeLayer);
+      refreshStatus();
+    });
+
+    const name = document.createElement("div");
+    name.className = "layerName";
+    name.title = state.name;
+    name.textContent = state.name;
+
+    const pill = document.createElement("span");
+    pill.className = "pill";
+    pill.textContent = state.type;
+
+    left.appendChild(cb);
+    left.appendChild(name);
+    left.appendChild(pill);
+
+    const right = document.createElement("div");
+    const btn = document.createElement("button");
+    btn.className = "smallBtn";
+    btn.textContent = "Remover";
+    btn.addEventListener("click", () => removeLayer(state.id));
+    right.appendChild(btn);
+
+    item.appendChild(left);
+    item.appendChild(right);
+    layersList.appendChild(item);
+  }
+
+  function refreshLayerSelect(){
+    const ids = Object.keys(layersState);
+    layerSelect.innerHTML = "";
+    if (!ids.length){
+      layerSelect.disabled = true;
+      btnFilter.disabled = true;
+      return;
+    }
+    layerSelect.disabled = false;
+    ids.forEach(id => {
+      const opt = document.createElement("option");
+      opt.value = id;
+      opt.textContent = layersState[id].name;
+      layerSelect.appendChild(opt);
+    });
+    // filtro só habilita se tiver camada + localização
+    btnFilter.disabled = !userLoc;
+  }
+
+  function refreshStatus(){
+    const ids = Object.keys(layersState);
+    if (!ids.length){
+      loadStatus.textContent = "Nenhuma camada carregada.";
+      filterStatus.textContent = "Sem filtro ativo.";
+      btnClear.disabled = true;
+      return;
+    }
+    const visible = ids.filter(id => layersState[id].isVisible).length;
+    const filtered = ids.filter(id => layersState[id].isFiltered).length;
+    loadStatus.textContent = `Camadas: ${ids.length} • visíveis: ${visible} • com filtro: ${filtered}`;
+    btnClear.disabled = filtered === 0;
+  }
+
+  function removeLayer(id){
+    const st = layersState[id];
+    if (!st) return;
+    // remove from map
+    map.removeLayer(st.activeLayer);
+    // remove from control (try)
+    try { layerControl.removeLayer(st.activeLayer); } catch(e) {}
+    // remove from state
+    delete layersState[id];
+    // remove from UI
+    const el = layersList.querySelector(`[data-layer-id="${id}"]`);
+    if (el) el.remove();
+    refreshLayerSelect();
+    refreshStatus();
+  }
+
+  // ---------- File loading ----------
+  function readFileAsText(file){
+    return new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onload = () => resolve(fr.result);
+      fr.onerror = reject;
+      fr.readAsText(file);
+    });
+  }
+
+  function readFileAsArrayBuffer(file){
+    return new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onload = () => resolve(fr.result);
+      fr.onerror = reject;
+      fr.readAsArrayBuffer(file);
+    });
+  }
+
+  async function loadOneFile(file){
+    const name = file.name;
+    const type = humanTypeFromExt(name);
+    let geojson = null;
+
+    if (name.toLowerCase().endsWith(".geojson") || name.toLowerCase().endsWith(".json")){
+      const txt = await readFileAsText(file);
+      geojson = JSON.parse(txt);
+    } else if (name.toLowerCase().endsWith(".kml")){
+      const txt = await readFileAsText(file);
+      const dom = (new DOMParser()).parseFromString(txt, "text/xml");
+      geojson = toGeoJSON.kml(dom);
+    } else if (name.toLowerCase().endsWith(".zip")){
+      const buf = await readFileAsArrayBuffer(file);
+      geojson = await shp(buf); // shpjs
+    } else {
+      throw new Error("Formato não suportado: " + name);
+    }
+
+    // normalize FeatureCollection
+    if (geojson.type === "Feature") geojson = { type: "FeatureCollection", features: [geojson] };
+
+    const id = uid();
+    const leafletLayer = makeLeafletLayerFromGeoJSON(geojson);
+
+    leafletLayer.addTo(map);
+    layerControl.addOverlay(leafletLayer, name);
+
+    layersState[id] = {
+      id,
+      name,
+      type,
+      originalGeoJSON: geojson,
+      originalLayer: leafletLayer,
+      activeLayer: leafletLayer,
+      isVisible: true,
+      isFiltered: false,
+      filteredLayer: null,
+      lastFilterMeta: null
+    };
+
+    addLayerToUI(layersState[id]);
+    map.fitBounds(leafletLayer.getBounds(), { padding: [20, 20] });
+  }
+
+  btnLoad.addEventListener("click", async () => {
+    const files = [...fileInput.files];
+    if (!files.length){
+      loadStatus.textContent = "Escolha pelo menos 1 arquivo.";
+      return;
+    }
+    loadStatus.textContent = "Carregando...";
+    btnLoad.disabled = true;
+
+    let ok = 0, fail = 0;
+    for (const f of files){
+      try{
+        await loadOneFile(f);
+        ok++;
+      }catch(err){
+        console.error(err);
+        fail++;
+      }
+    }
+    btnLoad.disabled = false;
+
+    refreshLayerSelect();
+    refreshStatus();
+
+    loadStatus.textContent = `Upload finalizado: ${ok} ok • ${fail} falhou.`;
+    fileInput.value = "";
+  });
+
+  // ---------- Geolocation ----------
+  function drawUserLocation(){
+    if (!userLoc) return;
+
+    if (userMarker) map.removeLayer(userMarker);
+    if (userCircle) map.removeLayer(userCircle);
+
+    userMarker = L.marker([userLoc.lat, userLoc.lng]).addTo(map).bindPopup("Você está aqui (aprox.)");
+    userCircle = L.circle([userLoc.lat, userLoc.lng], { radius: Number(radius.value), weight: 2, fillOpacity: 0.08 }).addTo(map);
+
+    map.setView([userLoc.lat, userLoc.lng], 15);
+  }
+
+  btnLocate.addEventListener("click", () => {
+    filterStatus.textContent = "Pedindo permissão de localização...";
+    if (!navigator.geolocation){
+      filterStatus.textContent = "Seu navegador não suporta geolocalização.";
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        userLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        drawUserLocation();
+        filterStatus.textContent = "Localização capturada. Agora dá pra filtrar.";
+        btnFilter.disabled = Object.keys(layersState).length === 0;
+      },
+      (err) => {
+        filterStatus.textContent = "Falhou pegar localização: " + err.message;
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+    );
+  });
+
+  // ---------- Filtering ----------
+  function applyFilterToLayer(layerId, radiusMeters, key, value){
+    const st = layersState[layerId];
+    if (!st) throw new Error("Camada não encontrada.");
+    if (!userLoc) throw new Error("Sem localização.");
+
+    const center = turf.point([userLoc.lng, userLoc.lat]);
+    const circle = turf.buffer(center, radiusMeters / 1000, { units: "kilometers" });
+
+    const keyL = safeLower(key).trim();
+    const valL = safeLower(value).trim();
+
+    const feats = (st.originalGeoJSON.features || []).filter(f => {
+      if (!f || !f.geometry) return false;
+
+      // filtro espacial: intersects com círculo (serve pra pontos/linhas/polígonos)
+      let okSpatial = true;
+      try{
+        okSpatial = turf.booleanIntersects(f, circle);
+      }catch(e){
+        okSpatial = true; // se turf reclamar de algum geom bizarro, não bloqueia
+      }
+
+      // filtro por atributo (opcional)
+      let okAttr = true;
+      if (keyL && valL){
+        const props = f.properties || {};
+        okAttr = safeLower(props[keyL] ?? props[key] ?? props[keyL.toUpperCase()]).includes(valL);
+        // fallback: procura em qualquer atributo
+        if (!okAttr){
+          okAttr = Object.values(props).some(v => safeLower(v).includes(valL));
+        }
+      } else if (valL && !keyL){
+        // se só valor veio, procura em qualquer atributo
+        const props = f.properties || {};
+        okAttr = Object.values(props).some(v => safeLower(v).includes(valL));
+      }
+      return okSpatial && okAttr;
+    });
+
+    const filtered = { type: "FeatureCollection", features: feats };
+    const filteredLayer = makeLeafletLayerFromGeoJSON(filtered);
+
+    // troca no mapa
+    if (st.isVisible) map.removeLayer(st.activeLayer);
+    try { layerControl.removeLayer(st.activeLayer); } catch(e) {}
+
+    st.filteredLayer = filteredLayer;
+    st.activeLayer = filteredLayer;
+    st.isFiltered = true;
+    st.lastFilterMeta = { radiusMeters, key, value, count: feats.length };
+
+    if (st.isVisible) {
+      filteredLayer.addTo(map);
+      layerControl.addOverlay(filteredLayer, st.name + " (filtrado)");
+      if (filteredLayer.getLayers().length){
+        map.fitBounds(filteredLayer.getBounds(), { padding: [20, 20] });
+      }
+    }
+
+    return feats.length;
+  }
+
+  function clearFilterFromAll(){
+    const ids = Object.keys(layersState);
+    ids.forEach(id => {
+      const st = layersState[id];
+      if (!st.isFiltered) return;
+
+      // remove filtered layer
+      if (st.isVisible) map.removeLayer(st.activeLayer);
+      try { layerControl.removeLayer(st.activeLayer); } catch(e) {}
+
+      st.filteredLayer = null;
+      st.activeLayer = st.originalLayer;
+      st.isFiltered = false;
+      st.lastFilterMeta = null;
+
+      // restore original
+      if (st.isVisible){
+        st.originalLayer.addTo(map);
+        layerControl.addOverlay(st.originalLayer, st.name);
+      }
+    });
+  }
+
+  btnFilter.addEventListener("click", () => {
+    const layerId = layerSelect.value;
+    if (!layerId) return;
+
+    try{
+      const r = Number(radius.value);
+      const k = propKey.value;
+      const v = propVal.value;
+
+      const n = applyFilterToLayer(layerId, r, k, v);
+
+      filterStatus.textContent = `Filtro aplicado na camada: ${layersState[layerId].name}\nResultado: ${n} feature(s) dentro de ${r}m` + (v ? ` e com '${v}'` : "") + ".";
+      refreshStatus();
+    }catch(e){
+      filterStatus.textContent = "Erro ao filtrar: " + e.message;
+    }
+  });
+
+  btnClear.addEventListener("click", () => {
+    clearFilterFromAll();
+    filterStatus.textContent = "Filtros limpos. Camadas originais restauradas.";
+    refreshStatus();
+  });
+
+  // init
+  refreshLayerSelect();
+  refreshStatus();
+</script>
+
+</body>
+</html>
