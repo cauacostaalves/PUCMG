@@ -1,0 +1,8 @@
+## Notação O (big O)
+
+notação O → 
+
+- A notação Big O é utilizada para descrever o **comportamento assintótico** do **tempo de execução** (ou custo operacional) de um algoritmo, **em função do tamanho da entrada n**, quando n tende ao infinito.
+- Como a notação O representa um **limite superior assintótico**, dizer que f(n)=O(g(n))  significa que a função g(n), multiplicada por uma constante, **serve como um limite superior para f(n)** a partir de um certo ponto n0.
+- Ou seja, quando dizemos que f(n) = O g(n), quer dizer que, a função g(n) . c limita assintoticamente a função f(n), isso quer dizer que:
+    - ∃ c > 0 , n0 ≥ 0 | g(n).c ≥ f(n) ∀n≥n0;
