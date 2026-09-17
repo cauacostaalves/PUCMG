@@ -1,0 +1,5 @@
+atributo_1,atributo_2,abs_correlacao
+ResidentDate_year,DischargeDate_year,0.9977
+triage_code,ResidentDate_year,0.9666
+triage_code,DischargeDate_year,0.9655
+ResidentDate_month,DischargeDate_month,0.9405
