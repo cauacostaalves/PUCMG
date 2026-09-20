@@ -1,0 +1,211 @@
+body {
+  margin: 10px 15px;
+}
+
+
+
+/* cabecalho começo*/
+.meunome {
+  padding: 10px 50px;
+  display: inline-block;
+}
+
+.seçoes ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px;
+}
+
+@media(max-width:900px) {
+  .meunome {
+    display: block;
+    width: 100%;
+  }
+
+  .seçoes ul li {
+    display: inline-block;
+  }
+}
+
+.seçoes {
+  float: right;
+  text-align: center;
+  font-family: arial;
+  font-size: large;
+}
+
+.meunome {
+  background-color: gainsboro;
+  float: left;
+  text-align: center;
+  font-family: arial;
+  font-size: large;
+}
+
+.meunome a {
+  text-decoration: none;
+  color: inherit;
+}
+.seçoes ul li a{
+  text-decoration: none;
+  color: black;
+}
+.seçoes ul li a:hover{
+  color: brown;
+}
+.meunome a:hover{
+color: brown;
+}
+
+/* cabecalho fim*/
+
+
+
+/* começo perfil*/
+.perfil {
+  display: inline-block;
+  border-top: 1px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.titulo {
+  font-weight: bold;
+  border-bottom: 10px;
+}
+
+.border {
+  padding: 4px;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+}
+
+.imagem-flex {
+  margin-right: 10px;
+}
+
+.fa-brands {
+  margin-right: 10px;
+}
+
+.perfil a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.perfil img {
+  width: 250px;
+  height: auto;
+}
+
+.titulo {
+  border-bottom: 2px solid;
+  border-color: black;
+
+}
+
+@media (max-width:900px) {
+  .perfil img {
+    display: none;
+  }
+
+}
+/* fim perfil*/
+
+
+/* Começo repositorios */
+.repositorios {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 15px;
+}
+@media(max-width:900px){
+  .repositorios div{
+    margin: 5px;
+  }
+  .repositorios .card-text{
+    display: none;
+  }
+}
+.repositorios div {
+  display: inline-block;
+}
+
+.repositorios a {
+  text-decoration: none;
+  color: inherit;
+}
+/* fim repositorios */
+
+
+/*começo conteudo sugeridos*/
+.conteudo{
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 15px;
+  
+}
+.conteudo div {
+  margin: 5px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  /* Centraliza horizontalmente */
+}
+
+.carousel {
+  width: 60%;
+  /* Ajuste conforme necessário */
+}
+
+.carousel-item img {
+  max-height: 60%;
+  /* Ajuste a altura máxima conforme necessário */
+}
+.fundocarrossel{
+  background-color: azure;
+  margin: 0px 80px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Altera a cor do ícone para preto */
+}
+/* fim conteudo sugeridos */
+
+
+
+/* Começo colegas de trabalho */
+.colegas div {
+  display: inline-block;
+  margin: 20px;
+}
+
+@media (max-width:900px) {
+  .colegas div {
+    margin: 5px;
+  }
+}
+
+/* Fim colegas de trabalho */
+
+
+
+/* começo topicos repositorios */
+.topicos{
+  margin: 0px;
+  float: left;
+}
+.topicos ul li{
+list-style-type: none;
+display: inline-block;
+padding: 10px;
+margin-right: 10px;
+background-color:dodgerblue;
+border-radius: 10px;
+}
+/* fim topicos repositorios*/

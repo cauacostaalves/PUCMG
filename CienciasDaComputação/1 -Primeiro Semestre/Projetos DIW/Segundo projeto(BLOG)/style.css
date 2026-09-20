@@ -1,0 +1,104 @@
+/*Menu principal*/
+.menu-principal ul li{
+list-style-type: none;
+display: inline-block;
+padding: 10px;
+background-color: gray;
+}
+.menu-principal ul li a{
+    text-decoration: none;
+   
+}
+.menu-principal ul li a:hover{
+    background-color: black;
+    color: white;
+}
+
+/*Conteudo do site*/
+.categorias a:hover{
+    background-color: black;
+    color: white;
+}
+header {
+    height: 100px;
+    
+    border-bottom: solid 1px lightgrey;
+   
+}
+main {
+    width: 70%;
+    float: left;
+    background-color: lightgoldenrodyellow;
+}
+.caixa-post
+{
+padding: 10px 10px;
+clear: both;
+}
+.caixa-post img{
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 200px;
+}
+.caixa-post h4 {
+    color: darkred;
+    font-size: 60%;
+    margin-bottom: 10px
+}
+
+.caixa-post p.texto {
+    font-size: 100%;
+}
+
+.caixa-post .categorias {
+    background-color: lightskyblue;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px
+}
+
+/* Componente Caixa Pesquisa */
+.caixa-pesquisa {
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.caixa-pesquisa h3 {
+    margin-bottom: 10px;
+}
+
+/* Componente Caixa Categoria */
+.caixa-categoria {
+    margin: 20px;
+}
+
+.caixa-categoria h3 {
+    margin-bottom: 10px;
+}
+
+.caixa-categoria ul {
+    list-style-type: none;
+}
+
+.caixa-categoria a {
+    text-decoration: none;
+}
+
+aside {
+    float: right;
+    width: 30%;
+    background-color: lightgray;
+}
+
+@media screen and (max-width:600px){
+    body{background-color: blue;}
+}
+
+
+
+
+
+
+

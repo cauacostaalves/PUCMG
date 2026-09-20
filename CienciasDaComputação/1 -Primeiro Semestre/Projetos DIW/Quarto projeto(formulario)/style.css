@@ -1,0 +1,18 @@
+form .Interesses{
+    display: inline;
+}
+h1{
+    background-color: black;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
+form{
+    margin: 10px;
+    padding: 10px;
+    background-color: darkgrey;
+    border: 1px solid black;
+}
+div{
+    margin: 5px;
+}

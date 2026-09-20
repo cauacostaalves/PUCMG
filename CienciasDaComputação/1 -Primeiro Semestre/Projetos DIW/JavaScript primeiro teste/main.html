@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+ <h1>Calculadora Basica</h1>
+    <script>
+
+var fala = "Escolha 1(soma), 2 (subtração), 3 (multi) e 4 (divisao) ";
+console.log(fala);
+
+var op = console.log("op: ");
+var num1 = console.log("Nota 1: ");
+var num2 = console.log("Nota 2: ");
+
+if(op==1){
+    console.log( parseFloat(num1) + parseFloat(num2));
+}
+else if(op ==2 ){
+    console.log( num1 - num2);
+}
+else if(op==3){
+    console.log( num1 * num2);
+}
+else if(op ==4){
+    console.log( num1 / num2);
+}
+else{
+    console.log("Burro");
+}
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+header{
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0px;
+}
+header ul {
+    list-style-type: none;
+}
+header ul li{
+    display: inline;
+    padding: 20px;
+    margin: 0px;
+    font-size: 1.2rem;
+    font-family: Arial;
+}
+main{
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+padding: 20px;
+}
+footer{
+    background-color: gray;
+    padding: 10px;
+}
