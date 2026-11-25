@@ -1,0 +1,10 @@
+/covtype.data.gz
+/covtype.data
+/covtype.txt
+/kmeans_seq
+/kmeans_omp
+/kmeans_cuda
+/kmeans_seq.exe
+/kmeans_omp.exe
+/kmeans_cuda.exe
+/*.obj
