@@ -1,0 +1,311 @@
+GUIA PESSOAL PARA A ENTREVISTA — K-MEANS
+=======================================
+
+1. O que a aplicação resolve
+----------------------------
+
+O K-means agrupa pontos semelhantes em K grupos, chamados clusters. Cada
+ponto tem D coordenadas, uma por atributo. O centroide de um cluster é
+o vetor formado pela média de cada coordenada dos pontos daquele grupo.
+O algoritmo é não supervisionado. Os grupos são construídos a partir
+dos atributos da entrada.
+
+As três versões usam o algoritmo de Lloyd e partem dos mesmos centroides.
+O programa escolhe K pontos em posições igualmente espaçadas no arquivo,
+com índice inteiro c × N / K para o cluster c. Essa escolha é determinística
+e facilita comparar as versões a partir da mesma condição inicial.
+
+Uma iteração tem dois passos.
+
+  1. Atribuição. Para cada ponto, calcule a distância até os K centroides
+     e guarde em labels[i] o índice do mais próximo. A distância usada
+     é a soma de (ponto[j] - centroide[j])² sobre as D coordenadas.
+     A raiz quadrada é dispensável porque preserva a ordem das distâncias.
+  2. Atualização. Some as coordenadas dos pontos de cada grupo e divida
+     cada soma pela quantidade de pontos do grupo. Se o grupo estiver
+     vazio, preserve o centroide anterior.
+
+Exemplo com uma dimensão e dois grupos. Com pontos 0, 2, 8 e 10, a
+inicialização escolhe 0 e 8. Na primeira atribuição, ficam {0, 2} e {8, 10}.
+Os centroides passam para 1 e 9. Na segunda iteração, todos os pontos ficam
+nos mesmos grupos e o algoritmo para. No código, esse caso é changes == 0.
+Os rótulos começam em -1, por isso todo ponto conta como mudança na primeira
+iteração.
+
+O custo dominante por iteração é O(N × K × D). Cada um dos N pontos é
+comparado com K centroides de D coordenadas. As somas custam O(N × D),
+e calcular as médias a partir delas custa O(K × D). Com I iterações
+executadas, o custo dominante total é O(I × N × K × D).
+
+
+2. O que significam 40 clusters e 30 iterações
+----------------------------------------------
+
+  .\kmeans_seq.exe covtype.txt 40 30
+
+  covtype.txt  Arquivo com os dados normalizados.
+  40           K, a quantidade de grupos que o programa deve construir.
+  30           max_iter, o máximo de ciclos de atribuição e atualização.
+
+O programa para assim que as atribuições estabilizam ou ao atingir
+max_iter. Na medição entregue, as três versões atingiram o limite de 30
+iterações. A mensagem "atingiu max_iter" informa qual critério encerrou
+a execução.
+
+Por que escolhemos essa configuração? O Covertype completo tem 581.012
+pontos e 54 atributos. Usamos K = 40 como carga de teste. Na primeira
+execução sequencial com limite de 100, o programa convergiu após 79
+iterações e levou 53,578409 s. Reduzimos o limite para fazer a coleta
+em menos tempo, preservando a base completa e os 40 clusters. Com limite
+de 30, o sequencial levou 18,113694 s e superou o mínimo de 10 s exigido
+no enunciado. Esse foi o tempo de referência para os speedups.
+
+Para a comparação de desempenho, todas as versões usaram o mesmo arquivo,
+o mesmo K, os mesmos centroides iniciais e o mesmo limite. O número de
+threads do OpenMP define a equipe da CPU. No CUDA, 256 é o número de
+threads em cada bloco da GPU. Esses valores controlam a execução paralela.
+
+
+3. Dados e código compartilhado
+-------------------------------
+
+covtype.data.gz — A base original comprimida da UCI. Cada linha descreve
+uma área florestal do Colorado com 54 atributos e uma coluna de classe.
+Os atributos incluem elevação, declive, sombreamento e tipos de solo.
+
+prepare_dataset.py — Baixa ou reutiliza a base local. Remove a última
+coluna, que contém a classe. Faz uma primeira passagem para calcular a
+média e o desvio padrão de cada atributo e uma segunda para gravar os
+valores normalizados por z-score, (valor - média) / desvio padrão. Isso
+evita que um atributo domine a distância só por ter unidade ou escala
+numérica maior. Uma coluna constante usa divisor 1 para evitar divisão
+por zero.
+
+covtype.txt — Entrada preparada dos três executáveis. A primeira linha
+é "581012 54". As demais linhas têm as 54 coordenadas normalizadas de
+cada ponto, separadas por espaços.
+
+kmeans_common.h — Infraestrutura que as três versões compartilham.
+
+  - Dataset guarda n, d e o vetor x com os pontos. Na CPU, a coordenada j
+    do ponto i está em x[i * d + j].
+  - load_dataset lê o cabeçalho e os valores. init_centroids seleciona
+    os pontos iniciais com a mesma regra em todas as versões.
+  - positive_arg valida K e max_iter como inteiros positivos. centroid_size
+    verifica K em relação a N e se K × D cabe no tipo inteiro usado.
+  - wall_time mede o tempo decorrido com QueryPerformanceCounter no
+    Windows e clock_gettime com CLOCK_MONOTONIC no Linux.
+  - compute_sse calcula a soma das distâncias ao quadrado de cada ponto
+    ao centroide do seu grupo. save_centroids grava os centroides em um
+    arquivo quando o caminho de saída é passado na linha de comando.
+
+
+4. kmeans_seq.c — Versão sequencial
+-----------------------------------
+
+É minha referência para entender o algoritmo. nearest_centroid percorre
+os K centroides e devolve o índice daquele com menor distância. No laço
+principal, uma única thread passa pelos N pontos. Para cada ponto, atualiza
+labels[i], acrescenta 1 a counts[cluster] e soma suas D coordenadas em
+sums[cluster * d + j]. O contador changes registra as trocas de grupo.
+
+Depois de visitar todos os pontos, outro laço calcula os centroides com
+sums / counts. As somas usam double para evitar acumular em float e os
+centroides resultantes são armazenados como float. Antes de cada iteração,
+sums, counts e changes voltam a zero. labels e cent conservam os dados que
+passam de uma iteração para a próxima.
+
+Procure no fonte, nesta ordem, nearest_centroid, o for que passa pelos
+pontos e o for que atualiza os centroides. São os trechos que reaparecem
+com outra forma de execução nas versões paralelas.
+
+
+5. kmeans_omp.c — Paralelização na CPU
+-------------------------------------
+
+O trecho mais caro, o laço sobre os N pontos, foi colocado em uma região
+#pragma omp parallel. O #pragma omp for schedule(static) divide o laço em
+blocos de trabalho. Calcular a distância de cada ponto tem custo parecido,
+pois todos passam pelos mesmos K centroides e D coordenadas. Durante essa
+etapa, as threads apenas leem os centroides e escrevem em rótulos distintos.
+
+O ponto que exige cuidado são as somas. Duas threads podem atribuir pontos
+ao mesmo grupo e tentar incrementar a mesma posição de counts ou sums.
+A diretiva reduction dá cópias privadas de sums, counts e changes para
+as threads e combina os resultados por soma. Ao final da região paralela,
+a barreira implícita garante que todas terminaram. Só então a CPU atualiza
+os centroides, em um laço sequencial de K × D coordenadas. Esse laço é
+pequeno em relação ao custo de calcular todas as distâncias.
+
+Na medição, alterei o argumento de omp_set_num_threads para cada teste
+e recompilei. omp_set_dynamic(0) desativa o ajuste dinâmico do tamanho da
+equipe. omp_get_num_threads() é chamado dentro da equipe para consultar
+quantas threads foram usadas. O valor de nthreads é preenchido com essa
+informação para a saída RESULT omp. Para refazer o teste de 2 threads,
+por exemplo, localizo omp_set_num_threads(32) e troco o argumento por 2.
+
+
+6. kmeans_cuda.cu — Paralelização na GPU
+---------------------------------------
+
+A CPU, chamada host, lê os dados, organiza a entrada, lança os kernels
+e verifica o critério de parada. Um kernel é uma função executada em
+paralelo pelas threads da GPU, chamada device. Os pontos e os centroides
+iniciais são copiados para a GPU antes do laço de iterações.
+
+Antes de copiar os pontos, a CPU transpõe seu armazenamento. Com o índice
+xT[j * n + i], a coordenada j fica em posições consecutivas para pontos
+vizinhos.
+Assim, threads vizinhas que leem o mesmo atributo acessam posições
+consecutivas da memória global, o que favorece leituras coalescidas.
+
+assign_and_accumulate — Primeiro kernel. Cada thread cuida de um ponto.
+O índice do ponto vem do índice do bloco, do tamanho do bloco e do índice
+da thread dentro do bloco. Com 256 threads por bloco, o último bloco pode
+ter posições além dos dados. A condição i < n restringe o acesso aos pontos
+existentes. Cada bloco carrega uma cópia dos centroides na sua memória
+compartilhada, acessível às threads daquele bloco.
+
+O primeiro kernel acumula em dois níveis. atomicAdd atualiza os contadores
+e somas compartilhados sem perder incrementos concorrentes. Depois, cada
+bloco adiciona suas somas parciais na memória global. __syncthreads()
+garante que todas as threads do bloco terminem a inicialização antes de
+ler os centroides e concluam suas contribuições antes de enviar o parcial.
+
+update_centroids — Segundo kernel. Cada thread calcula uma coordenada de
+um centroide a partir da soma e da contagem globais. A divisão do índice
+da coordenada por D identifica o cluster. As duas chamadas são lançadas
+na mesma fila da GPU, o que ordena a atualização depois da atribuição.
+
+A cada iteração, a CPU recebe um inteiro, changes, para decidir se o laço
+continua. Os centroides e rótulos finais voltam após o laço. A verificação
+de memória compartilhada impede o lançamento do kernel quando o espaço
+necessário para os acumuladores e centroides excede o limite do bloco.
+
+
+7. Compilação e ferramentas da pasta
+------------------------------------
+
+No Windows, os comandos que usei para compilar as versões de CPU foram:
+
+  gcc -O2 -std=c11 -Wall -o kmeans_seq.exe kmeans_seq.c -lm
+  gcc -O2 -std=c11 -Wall -fopenmp -o kmeans_omp.exe kmeans_omp.c -lm
+
+-O2 habilita otimizações, -std=c11 seleciona o padrão do C, -Wall habilita
+avisos comuns e -o escolhe o nome da saída. -fopenmp ativa as diretivas e
+liga a biblioteca de execução do OpenMP. Depois de alterar o .c, salvar
+e recompilar são passos distintos. O executável anterior continua na pasta
+se uma compilação falhar. No cmd.exe, juntar compilação e execução com
+&& faz o teste começar somente quando a compilação termina com sucesso.
+
+Para CUDA, o nvcc compila o código da GPU e usa o compilador C++ do Visual
+Studio para a parte que roda na CPU. No meu Windows, carreguei o ambiente
+x64 com vcvars64.bat e chamei o nvcc portátil pelo caminho completo.
+
+  nvcc -O2 --fmad=false -arch=sm_75 -o kmeans_cuda.exe kmeans_cuda.cu
+  .\kmeans_cuda.exe covtype.txt 40 30
+
+sm_75 corresponde à capacidade de computação 7.5 da RTX 2060. A opção
+--fmad=false mantém a multiplicação e a soma separadas no cálculo das
+distâncias, como na compilação de referência com GCC. Isso facilita a
+comparação numérica.
+
+Outros arquivos mostrados na pasta:
+
+  kmeans_seq.exe, kmeans_omp.exe e kmeans_cuda.exe
+    Executáveis do Windows gerados a partir dos três fontes.
+
+  Makefile
+    Receitas de compilação para Linux. make gera as versões de CPU
+    e make cuda compila a versão de GPU.
+
+  run_benchmarks.py e run_benchmarks.sh
+    Ferramentas opcionais para automatizar a coleta. O Python executa os
+    programas já compilados, lê as linhas RESULT, verifica as saídas e
+    calcula tempos medianos e speedups. O Bash compila a CPU com make e
+    chama o Python. Para o script controlar a equipe via OMP_NUM_THREADS,
+    retire a chamada fixa de omp_set_num_threads do código e recompile.
+    Nos testes da entrega, alterei a equipe no fonte e rodei manualmente.
+
+  .gitignore
+    Lista os executáveis, arquivos de objeto e dados gerados ou baixados
+    que ficam fora do controle de versão do Git.
+
+  readme.txt
+    Relatório da entrega. Contém a descrição da aplicação e da base,
+    instruções de compilação e execução, ambiente e resultados.
+
+Durante a revisão, as três versões passaram a validar K e max_iter da
+mesma forma. Com max_iter igual a zero, por exemplo, os rótulos iniciais
+ficariam em -1 e seriam usados durante a avaliação final. Também foi
+ajustado o relógio para o Windows, a saída OpenMP passou a informar o
+tamanho real da equipe, e o tempo total do CUDA passou a incluir o custo
+de transpor os pontos na CPU.
+
+
+8. Resultados que eu preciso saber interpretar
+-----------------------------------------------
+
+Máquina de teste: Intel Core i5-11400F com 6 núcleos físicos e 12 lógicos,
+NVIDIA GeForce RTX 2060 e Windows 11 Pro. Fiz uma medição por configuração.
+
+  Versão              Tempo (s)     Speedup contra o sequencial
+  ------------------  ------------  ---------------------------
+  Sequencial          18,113694      1,00x
+  OpenMP  1 thread    20,148328      0,90x
+  OpenMP  2 threads   11,845973      1,53x
+  OpenMP  4 threads    7,770411      2,33x
+  OpenMP  8 threads    4,779484      3,79x
+  OpenMP 16 threads    4,407301      4,11x
+  OpenMP 32 threads    3,984387      4,55x
+  CUDA (tempo total)   0,492608     36,77x
+
+Speedup = tempo da versão sequencial / tempo da versão medida. Para o
+CUDA, a conta é 18,113694 / 0,492608 = 36,77x. Com 1 thread, o OpenMP
+ficou um pouco mais lento. A região paralela e as reduções ainda têm
+custo, e o trabalho dos pontos ficou com uma única thread. O melhor
+resultado OpenMP observado foi com 32 threads. As equipes de 16 e 32
+compartilham os 12 processadores lógicos, então a execução depende do
+escalonamento. Uma única rodada mostra o que aconteceu naquele teste.
+
+O relógio da CPU cobre as iterações. O tempo total CUDA inclui transposição,
+cópias e iterações. O tempo de 0,433859 s por eventos CUDA cobre o laço,
+incluindo kernels, zeragem dos acumuladores e sincronização por iteração.
+Preparar e ler o arquivo ficam fora da janela medida. O SSE é calculado
+após o cronômetro. As versões reportaram o mesmo valor (1.3526299496e+07).
+É uma conferência numérica do agrupamento. Comparar rótulos ou centroides
+também permite verificar o resultado com mais detalhe.
+
+
+9. Perguntas para treinar sem olhar o código
+--------------------------------------------
+
+1. Posso calcular a iteração 2 enquanto a iteração 1 ainda está ocorrendo?
+   A atribuição da iteração 2 depende dos novos centroides calculados com
+   todos os pontos da iteração 1. Dentro da atribuição, as distâncias dos
+   pontos podem ser calculadas em paralelo com os centroides daquela etapa.
+
+2. O que aconteceria se eu usasse counts[best]++ compartilhado no OpenMP?
+   Duas threads poderiam ler o mesmo contador e gravar o mesmo incremento,
+   perdendo uma contribuição. A quantidade errada afetaria a média.
+
+3. Por que a GPU usa dois kernels?
+   O primeiro precisa acumular as contribuições de todos os blocos. Uma
+   barreira __syncthreads() coordena apenas as threads de um bloco. Lançar
+   o segundo kernel depois do primeiro ordena o uso das somas globais.
+
+4. O que muda se eu aumentar K e manter os dados?
+   Cada ponto compara mais centroides por iteração. Na GPU, as estruturas
+   compartilhadas também crescem por bloco. A contagem de iterações até
+   convergir depende de como os grupos evoluem.
+
+5. Como sei qual condição encerrou o programa?
+   A saída mostra o número de iterações e o motivo. changes igual a zero
+   significa que os rótulos estabilizaram. No benchmark, o laço chegou
+   às 30 iterações configuradas.
+
+6. Como eu mostraria o trabalho ao vivo?
+   Começaria em nearest_centroid e no laço de atualização do sequencial.
+   No OpenMP, apontaria omp_set_num_threads e a redução de sums, counts
+   e changes. No CUDA, mostraria os dois lançamentos de kernels e a cópia
+   de changes para a CPU. Terminaria com a tabela de tempos do readme.txt.
